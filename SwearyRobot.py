@@ -19,15 +19,6 @@ import time
 api = tweepy.API(auth)
 
 #
-# Pull followers through
-ids = [user.screen_name for user in tweepy.Cursor(api.followers, screen_name="SwearyRobot").items()]
-
-#
-# Pull hashtags through
-trends1 = api.trends_place(1)
-hashtags = [x['name'] for x in trends1[0]['trends'] if x['name'].startswith('#')]
-
-#
 # It's combination list time!
 # 
 superlative = [ "Super", "Ultra", "Mega", "Ultra", "Weak", "Weepy", "Mad", "Rage", "Sad", "Farty", "Disgust-o-", "Bilious", "Pre-raphaelite-", "Vomito", "Arthurian-", "Bad", "cavernous", "Good", "Insdious", "Rupert-Murdochian-", "Cry", "Foxnews", "Stilted-", "Impossa", "Bleeding ", "Nostril", "Diahorretic", "Enochian ", "Cockripping ", "Sharp", "Evil", "Disturbing ", "Jerkwad ", "Screwy ", "Arseweeping-", "Scagged-up ", "Stink", "Gunked-up ", "Fisted ", "Smeared ", "Disappointing-", "Pus-filled ", "Botty", "Dingle", "Pissy", "Rancid ", "Rot", "Cacky", "Skank", "Funsize ", "Baby", "Ming", "Dodgy", "Fuck", "Skate", "Dirty", "Death", "Murder", "Frothing wrath", "Porn", "Micro", "Internet", "Massive", "Crotch", "Daily Mail ", "King", "Queen", "Princess", "Lantern-jawed-", "Crack", "Smeg", "Shitty", "Rat", "Lamplicking", "Incontinent ", "Trump", "Waste", "Gun-toting-", "Poo", "Milky", "Slime", "Colonic-", "Classically Greek ", "French rennaissance ", "Redfaced", "Minging", "Milquetost", "Muckchucking ", "Vomitous"]
@@ -42,12 +33,15 @@ butscrewthis = [ "But screw this", "Great, more", "Bugger", "No point in", "Lovi
 # Time to construct the tweet
 #
 if random.randrange(20) > 12:
-	tweet = random.choice(superlative) + random.choice(swear) + "! " + random.choice(preposition) % random.choice(swear) + " #" + random.choice(superlative) + random.choice(swear)
+	tweet = "%s%s! %s #%s%s" % (random.choice(superlative), random.choice(swear), random.choice(preposition) % random.choice(swear),random.choice(superlative),random.choice(swear))
 elif random.randrange(20) < 2:
+	ids = [user.screen_name for user in tweepy.Cursor(api.followers, screen_name="SwearyRobot").items()]
 	tweet = "@%s OI %s! Why don't you %s in the %s, you fucking %s!!" % (random.choice(ids),random.choice(superlative) + random.choice(swear), random.choice(swear), random.choice(stuff), random.choice(swear))
 elif random.randrange(20) < 8:
 	tweet = "%s %s in the %s. %s. #%s" % (random.choice(dang), random.choice(swear), random.choice(stuff), random.choice(preposition) % random.choice(swear), random.choice(swear))
 elif random.randrange(20) < 5:
+	trends1 = api.trends_place(1)
+	hashtags = [x['name'] for x in trends1[0]['trends'] if x['name'].startswith('#')]
 	tweet = "No idea what this %s is about. %s %s" % (random.choice(swear), random.choice(preposition) % random.choice(swear), random.choice(hashtags))
 elif random.randrange(20) < 9:
 	tweet = random.choice(celebline) % (celebgrab(), random.choice(swear),random.choice(swear))
@@ -61,3 +55,4 @@ else:
 #
 if __name__ == "__main__" and random.randrange(20) < 5:
 	api.update_status(tweet)
+
