@@ -35,12 +35,16 @@ butscrewthis = [ "But screw this", "Great, more", "Bugger", "No point in", "Lovi
 if random.randrange(20) > 12:
 	tweet = "%s%s! %s #%s%s" % (random.choice(superlative), random.choice(swear), random.choice(preposition) % random.choice(swear),random.choice(superlative),random.choice(swear))
 elif random.randrange(20) < 2:
+	#
+	# grab followers so we can randomly insult one
 	ids = [user.screen_name for user in tweepy.Cursor(api.followers, screen_name="SwearyRobot").items()]
 	tweet = "@%s OI %s! Why don't you %s in the %s, you fucking %s!!" % (random.choice(ids),random.choice(superlative) + random.choice(swear), random.choice(swear), random.choice(stuff), random.choice(swear))
 elif random.randrange(20) < 8:
 	tweet = "%s %s in the %s. %s. #%s" % (random.choice(dang), random.choice(swear), random.choice(stuff), random.choice(preposition) % random.choice(swear), random.choice(swear))
 elif random.randrange(20) < 5:
-	trends1 = api.trends_place(1)
+	#
+	# grab uk trends so we can insult one
+	trends1 = api.trends_place(44418)
 	hashtags = [x['name'] for x in trends1[0]['trends'] if x['name'].startswith('#')]
 	tweet = "No idea what this %s is about. %s %s" % (random.choice(swear), random.choice(preposition) % random.choice(swear), random.choice(hashtags))
 elif random.randrange(20) < 9:
@@ -51,8 +55,8 @@ else:
 	tweet = "%s %s %s %s." % (random.choice(dong),supermasstrack,random.choice(butscrewthis),random.choice(swear))
 
 #
-# And finally post the mother
+# And finally post the mother (hash out the statement for testing and unhash the print)
 #
 if __name__ == "__main__" and random.randrange(20) < 5:
 	api.update_status(tweet)
-
+#print tweet
