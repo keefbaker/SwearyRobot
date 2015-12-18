@@ -9,6 +9,7 @@
 #
 import tweepy
 import random
+import mailgen
 from holly import celebgrab
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret
 #
@@ -35,6 +36,9 @@ noidea  = ["No idea what this %s is about.", "This subject gets my %s.", "What a
 #
 if random.randrange(20) > 12:
 	tweet = "%s%s! %s #%s%s" % (random.choice(superlative), random.choice(swear), random.choice(preposition) % random.choice(swear), random.choice(superlative), random.choice(swear))
+elif random.randrange(20) < 20:
+	crappo = mailgen.biglad()
+	tweet = "The Daily Mail says '%s'. I say %s %s %s %s #%s%s" % (crappo[0],random.choice(swear), crappo[1], random.choice(swear), crappo[2],crappo[3],random.choice(swear))
 elif random.randrange(20) < 2:
 	#
 	# grab followers so we can randomly insult one
