@@ -10,6 +10,7 @@
 import tweepy
 import random
 import mailgen
+from games import gamegrab
 from holly import celebgrab
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret
 #
@@ -34,8 +35,12 @@ noidea  = ["No idea what this %s is about.", "This subject gets my %s.", "What a
 #
 # Time to construct the tweet
 #
-if random.randrange(20) > 12:
+if random.randrange(20) > 13:
 	tweet = "%s%s! %s #%s%s" % (random.choice(superlative), random.choice(swear), random.choice(preposition) % random.choice(swear), random.choice(superlative), random.choice(swear))
+elif random.randrange(20) <4:
+	game = gamegrab()
+	proop = [ "to", "and", "it's", "not too", "less than", "worse than", "the absolute best"]
+	tweet = "%s! %s%s %s %s #%s%s" % (game, random.choice(superlative), random.choice(swear), random.choice(proop),random.choice(swear),random.choice(superlative), random.choice(swear))
 elif random.randrange(20) < 5:
 	#
 	# grab some random bollocks from the Daily mail and comment oddly on it.
