@@ -56,9 +56,9 @@ elif random.randrange(20) < 5:
 	tweet = "%s %s %s" % (random.choice(noidea) % random.choice(swear), random.choice(preposition) % random.choice(swear), random.choice(hashtags))
 elif random.randrange(20) < 9:
 	tweet = random.choice(celebline) % (celebgrab(), random.choice(swear),random.choice(swear))
-elif random.randrange(20) > 12:
+elif random.randrange(20) > 7:
 	crappo = mailgen.biglad()
-	tweet = "%s %s %s %s. Nonsense! #%s%s" % (random.choice(swear), crappo[1], random.choice(swear), crappo[2],crappo[3],random.choice(swear))
+	tweet = "%s %s %s %s %s %s. Nonsense! #%s%s" % (random.choice(swear), crappo[1], random.choice(swear), crappo[2],random.choice(swear),crappo[4],crappo[3],random.choice(swear))
 else:
 	masstrack = random.choice(superlative) + random.choice(swear)
 	supermasstrack = random.choice(preposition) % masstrack
