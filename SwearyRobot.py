@@ -28,19 +28,19 @@ preposition = [ "I mean %s,  right?", "Just %s!!", "There's %s.", "And there it 
 stuff = [ "tea", "toilet", "post office", "work canteen", "fish fingers", "Fenton pub", "salad bowl", "lemon juice", "helicopter cockpit", "DFS sale", "prison shower", "bolognese", "chistmas cake", "garden", "nude", "nearby branch of Tesco", "city of Whiterun", "dog's mouth", "spleen", "hotel towel", "cavernous arse of Alexander the Great", "martian rover", "photocopier outlet", "boot cupboard", "sellotape", "dogs mouth", "queen's ladygarden", "french mustard", "rotting turkey", "butthole of Santa", "dark one's testes", "nuclear waste barrel", "only copy of Half life 3", "last open Woolworths", "word of God"]
 dang = [ "Enough of", "Why", "How do you", "I never did", "No more", "Had my fill of", "Please stop the", "Less of the", "So much for", "And then", "Don't talk to me about", "We've run out of" ]
 dong = [ "So I said,", "Well he thought,", "I don't want", "He said to me,", "I never wanted to hear", "I asked for oil, I didn't say,", "Philosophy:", "Why all the," ]
-celebline = [ "I wish %s would %s %s!", "%s has %s'd in the %s. Disgraceful!", "I know %s is famous but %s a %s!", "%s, a classic %s %s", "Woo! %s #%s%s", "Fuck %s, I'm %sed off with all the %s.", "Right, so %s. You know what I think? #%s%s" ]
+celebline = [ "I wish %s would %s %s!", "%s has %s'd in the %s. Disgraceful!", "I know %s is famous but %s a %s!", "%s, a classic %s %s", "Woo! %s #%s%s", "Fuck %s, I'm %sed off with all the %s.", "Right, so %s. You know what I think? #%s%s", "Nothing against %s apart from %s and %s!" ]
 butscrewthis = [ "But screw this", "Great, more", "Bugger", "No point in", "Loving the", "I can't live without", "I can still taste", "Oh, car full of", "Nobody minds my", "I don't understand", "Loving the", "Sad about"]
-noidea  = ["No idea what this %s is about.", "This subject gets my %s.", "What a load of %s", "%s eh? I think", "What ever this %s hastag is about. Looks like", "Loving this %s", "Feeling good about %s.", "No %s on me!"]
+noidea  = ["No idea what this %s is about.", "This subject gets my %s.", "What a load of %s", "%s eh? I think", "What ever this %s hastag is about. Looks like", "Loving this %s", "Feeling good about %s.", "No %s on me!", "Wow! Fuck a %s!", "New %s please!"]
 #
 # Time to construct the tweet
 #
 if random.randrange(20) > 12:
 	tweet = "%s%s! %s #%s%s" % (random.choice(superlative), random.choice(swear), random.choice(preposition) % random.choice(swear), random.choice(superlative), random.choice(swear))
-elif random.randrange(20) < 8:
+elif random.randrange(20) < 6:
 	#
 	# grab some random bollocks from the Daily mail and comment oddly on it.
 	crappo = mailgen.biglad()
-	tweet = "The Daily Mail says '%s'. I say %s %s %s %s #%s%s" % (crappo[0],random.choice(swear), crappo[1], random.choice(swear), crappo[2],crappo[3],random.choice(swear))
+	tweet = "Daily Mail says '%s' I say %s %s %s %s #%s%s" % (crappo[0],random.choice(swear), crappo[1], random.choice(swear), crappo[2],crappo[3],random.choice(swear))
 elif random.randrange(20) < 2:
 	#
 	# grab followers so we can randomly insult one
@@ -56,6 +56,9 @@ elif random.randrange(20) < 5:
 	tweet = "%s %s %s" % (random.choice(noidea) % random.choice(swear), random.choice(preposition) % random.choice(swear), random.choice(hashtags))
 elif random.randrange(20) < 9:
 	tweet = random.choice(celebline) % (celebgrab(), random.choice(swear),random.choice(swear))
+elif random.randrange(20) > 12:
+	crappo = mailgen.biglad()
+	tweet = "%s %s %s %s. Nonsense! #%s%s" % (random.choice(swear), crappo[1], random.choice(swear), crappo[2],crappo[3],random.choice(swear))
 else:
 	masstrack = random.choice(superlative) + random.choice(swear)
 	supermasstrack = random.choice(preposition) % masstrack
