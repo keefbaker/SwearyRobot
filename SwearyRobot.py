@@ -42,7 +42,7 @@ elif random.randrange(20) <4:
 	game = gamegrab()
 	proop = [ "to", "and", "it's", "not too", "less than", "worse than", "the absolute best", "I think"]
 	tweet = "%s! %s%s %s %s #%s%s" % (game, random.choice(superlative), random.choice(swear), random.choice(proop),random.choice(swear),random.choice(superlative), random.choice(swear))
-elif random.randrange(20) <40:
+elif random.randrange(20) <4:
 	dvd = dvdgrab()
 	proop = [ "to", "and", "it's", "not too", "less than", "worse than", "the absolute best", "I think"]
 	tweet = "%s %s %s%s %s %s #%s%s" % (random.choice(swear).capitalize(), dvd, random.choice(superlative), random.choice(swear), random.choice(proop),random.choice(swear),random.choice(superlative), random.choice(swear))
