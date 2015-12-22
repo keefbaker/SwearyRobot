@@ -12,6 +12,7 @@ import random
 import mailgen
 from games import gamegrab
 from holly import celebgrab
+from films import dvdgrab
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret
 #
 # set auth
@@ -41,6 +42,10 @@ elif random.randrange(20) <4:
 	game = gamegrab()
 	proop = [ "to", "and", "it's", "not too", "less than", "worse than", "the absolute best", "I think"]
 	tweet = "%s! %s%s %s %s #%s%s" % (game, random.choice(superlative), random.choice(swear), random.choice(proop),random.choice(swear),random.choice(superlative), random.choice(swear))
+elif random.randrange(20) <40:
+	dvd = dvdgrab()
+	proop = [ "to", "and", "it's", "not too", "less than", "worse than", "the absolute best", "I think"]
+	tweet = "%s %s %s%s %s %s #%s%s" % (random.choice(swear).capitalize(), dvd, random.choice(superlative), random.choice(swear), random.choice(proop),random.choice(swear),random.choice(superlative), random.choice(swear))
 elif random.randrange(20) < 5:
 	#
 	# grab some random bollocks from the Daily mail and comment oddly on it.
@@ -65,7 +70,7 @@ elif random.randrange(20) < 9:
 elif random.randrange(20) > 7:
 	crappo = mailgen.biglad()
 	blob = [ "Nonsense!", "Yeah, right!", "Never", "Total Garbage if you ask me!", "And never a truer word..", "Fucks sake, eh?"]
-	tweet = "%s %s %s %s %s %s. %s #%s%s" % (random.choice(swear), crappo[1], random.choice(swear), crappo[2],random.choice(swear),crappo[4], random.choice(blob),crappo[3],random.choice(swear))
+	tweet = "%s %s %s %s %s %s. %s #%s%s" % (random.choice(swear).capitalize(), crappo[1], random.choice(swear), crappo[2],random.choice(swear),crappo[4], random.choice(blob),crappo[3],random.choice(swear))
 else:
 	masstrack = random.choice(superlative) + random.choice(swear)
 	supermasstrack = random.choice(preposition) % masstrack
