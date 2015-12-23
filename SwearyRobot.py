@@ -35,7 +35,7 @@ dong = ( "So I said,", "Well he thought,", "I don't want", "He said to me,", "I 
 celebline = ( "I wish %s would %s %s!", "%s has %s'd in the %s. Disgraceful!", "I know %s is famous but %s a %s!", "%s, a classic %s %s", "Woo! %s #%s%s", "Fuck %s, I'm %sed off with all the %s.", "Right, so %s. You know what I think? #%s%s", "Nothing against %s apart from %s and %s!", "No need for %s to be so %s for %s all the time." )
 butscrewthis = ( "But screw this", "Great, more", "Bugger", "No point in", "Loving the", "I can't live without", "I can still taste", "Oh, car full of", "Nobody minds my", "I don't understand", "Loving the", "Sad about", "Why worry about" )
 noidea  = ( "No idea what this %s is about.", "This subject gets my %s.", "What a load of %s", "%s eh? I think", "What ever this %s hastag is about. Looks like", "Loving this %s", "Feeling good about %s.", "No %s on me!", "Wow! Fuck a %s!", "New %s please!" "Who made this %s up?", "People have been soaked in %s for less." )
-proop = ( "to", "and", "it's", "not too", "less than", "worse than", "the absolute best", "I think", "A pile of", "Astoundingly", "Makes me so happy I could", "not particularly" )
+proop = ( "to", "and", "it's", "not too", "less than", "worse than", "the absolute best", "I think", "A pile of", "Astoundingly", "Makes me so happy I could", "not particularly", "in", "similar to" )
 
 #
 # Time to construct the tweet
