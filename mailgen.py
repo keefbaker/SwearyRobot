@@ -29,23 +29,13 @@ def grab():
         sentence = []
         try:
                 if len(str(summary)) > 100:
-                        try:
-                                words = summary.split(' ')
-                                for word in words:
-                                        sentence.append(word)
-                                        if word.endswith(",") and len(sentence) > 4:
-                                                raise BreakOut
-                        except:
-                                pass
-        except:
-                grab()
-        if sentence == []:
-                message = summary
-        else:
-                message = ' '.join(sentence)
-        try:
-                if (len(str(message)) < 100) and (len(str(message)) > 10):
-                        return str(message)
+                        words = summary.split(' ')
+                        for word in words:
+                                sentence.append(word)
+                                if word.endswith(",") and len(sentence) > 4:
+                                        message = ' '.join(sentence)
+                                        if (len(str(message)) < 100) and (len(str(message)) > 10):
+                                                return str(message)
         except:
                 pass
 def mail():
@@ -56,7 +46,6 @@ def mail():
 def younutter():
         headline = []
         grabstuff()
-        mail()
         for letters in "TheMailAreABunchOfCuntsAndIWouldntPissOnThemIfTheyWereOnFireNoIMeanItIHateTheBunchOfFascistFuckingBastardsAndTheyCanShoveTheirRacismUpTheirArse":
                 headline.append(random.choice(tag))
         return headline
