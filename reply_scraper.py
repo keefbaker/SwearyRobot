@@ -21,11 +21,10 @@ speaktome = ( "HOW DARE YOU! %s, you're a %s %s", "Never speak to me like that, 
 # check last 3 minutes
 from datetime import datetime, timedelta
 timestamp = datetime.now() - timedelta(minutes=3)
-results = api.search(q=twitterName)
+results = api.search(q="@" + twitterName)
 #
 # if there's anything, lay into the bastards!
 for result in results:
 	if "RT" not in result.text and result.created_at > timestamp:
 		twerp= "@%s %s" % (result.user.screen_name, random.choice(speaktome) % (result.user.name, random.choice(swear), random.choice(swear)))
 		api.update_status(twerp)
-
