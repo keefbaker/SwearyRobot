@@ -2,6 +2,8 @@
 import feedparser
 import random
 class BreakOut(Exception): pass
+#
+# Fill out usable common word the Daily Hate uses
 def grabstuff():
         Maildata = feedparser.parse('http://www.dailymail.co.uk/home/index.rss')
         global summaries
@@ -24,6 +26,8 @@ def grabstuff():
         zimbus = sorted(hotwords.items(), key=lambda x: x[1], reverse=True)
         for f, v in zimbus[:150]:
                 tag.append(f)
+#
+# Grab Daily Heil headlines
 def grab():
         summary = random.choice(summaries)
         sentence = []
@@ -38,18 +42,23 @@ def grab():
                                                 return str(message)
         except:
                 pass
+#
+# Short loop to catch any issues with headlines, some parse weirdly.
 def mail():
         global mailcrap
         mailcrap = grab()
         if mailcrap is None:
                 mail()
+#
+# Export a load of common words from The Fail (used in SwearyRobot)
 def younutter():
         headline = []
         grabstuff()
         for letters in "TheMailAreABunchOfCuntsAndIWouldntPissOnThemIfTheyWereOnFireNoIMeanItIHateTheBunchOfFascistFuckingBastardsAndTheyCanShoveTheirRacismUpTheirArse":
                 headline.append(random.choice(tag))
         return headline
-
+#
+# Main program, returns a list of a headline and a few common words for use
 def biglad():
         headline = []
         grabstuff()
@@ -58,7 +67,8 @@ def biglad():
         for letters in "Mail":
                 headline.append(random.choice(tag))
         return headline
-
+#
+# so it can be run directly for testing
 if __name__ == "__main__":
         dumper = biglad()
         print dumper

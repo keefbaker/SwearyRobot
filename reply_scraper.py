@@ -25,8 +25,7 @@ results = api.search(q=twitterName)
 #
 # if there's anything, lay into the bastards!
 for result in results:
-	if "RT" not in result.text:
-		if  result.created_at > timestamp:
-			twerp= "@%s %s" % (result.user.screen_name, random.choice(speaktome) % (result.user.name, random.choice(swear), random.choice(swear)))
-			api.update_status(twerp)
+	if "RT" not in result.text and result.created_at > timestamp:
+		twerp= "@%s %s" % (result.user.screen_name, random.choice(speaktome) % (result.user.name, random.choice(swear), random.choice(swear)))
+		api.update_status(twerp)
 
