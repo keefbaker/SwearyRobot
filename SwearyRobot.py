@@ -43,12 +43,22 @@ proop = ( "to", "and", "it's", "not too", "less than", "worse than", "the absolu
 def constructOTweet():
 	if random.randrange(20) > 13:
 		tweet = "%s%s! %s #%s%s" % (random.choice(superlative), random.choice(swear), random.choice(preposition) % random.choice(swear), random.choice(superlative), random.choice(swear))
-	elif random.randrange(20) <4:
+	elif random.randrange(20) < 10:
+		#
+		# random mix of mail top words and swearing
+		OMGWHY = mailgen.younutter()
+		for i in swear:
+			OMGWHY.append(i)
+		for o in proop:
+			OMGWHY.append(o)
+		tweet = "%s %s %s %s! %s %s? %s %s #%s%s" % (random.choice(OMGWHY).capitalize(),random.choice(OMGWHY),random.choice(OMGWHY),random.choice(OMGWHY),random.choice(OMGWHY).capitalize(),random.choice(OMGWHY),random.choice(OMGWHY).capitalize(),random.choice(OMGWHY),random.choice(OMGWHY),random.choice(OMGWHY))
+
+	elif random.randrange(20) < 4:
 		#
 		# check top 10 games and comment
 		game = gamegrab()
 		tweet = "%s! %s%s %s %s #%s%s" % (game, random.choice(superlative), random.choice(swear), random.choice(proop),random.choice(swear),random.choice(superlative), random.choice(swear))
-	elif random.randrange(20) <4:
+	elif random.randrange(20) < 4:
 		#
 		# check top 10 dvds and comment
 		dvd = dvdgrab()

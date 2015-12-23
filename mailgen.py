@@ -22,7 +22,7 @@ def grabstuff():
         global tag
         tag = []
         zimbus = sorted(hotwords.items(), key=lambda x: x[1], reverse=True)
-        for f, v in zimbus[:70]:
+        for f, v in zimbus[:80]:
                 tag.append(f)
 def grab():
         summary = random.choice(summaries)
@@ -53,6 +53,14 @@ def mail():
         mailcrap = grab()
         if mailcrap is None:
                 mail()
+def younutter():
+        headline = []
+        grabstuff()
+        mail()
+        for letters in "TheMailAreABunchOfCuntsAndIWouldntPissOnThemIfTheyWereOnFire":
+                headline.append(random.choice(tag))
+        return headline
+
 def biglad():
         headline = []
         grabstuff()
