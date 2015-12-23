@@ -1,4 +1,3 @@
-import sys
 #!/usr/bin/env python
 #
 # Sweary Robot by Keith Baker
@@ -9,6 +8,7 @@ import sys
 # are in the import statement below
 #
 import tweepy
+import sys
 import random
 import mailgen
 from games import gamegrab
@@ -78,7 +78,7 @@ def constructOTweet():
 		tweet = "%s %s %s %s." % (random.choice(dong),supermasstrack,random.choice(butscrewthis),random.choice(swear))
 	return tweet
 #
-# use p after the python script for print test eg : SwearyRobot.py p or use an integer to print that number of messages out
+# use p after the python script for print test eg : SwearyRobot.py p or use an integer to print that number of messages out. You can used "dotweet" to bypass probability too
 #
 
 if __name__ == "__main__": 
@@ -92,10 +92,12 @@ if __name__ == "__main__":
 	elif arg == "no":
 		if random.randrange(20) < 3:
 			api.update_status(tweet)
+	elif arg == "dotweet":
+			api.update_status(tweet)
 	else:
 		try:
 			number = int(arg)
 			for i in range (0, number):
 				print constructOTweet()
 		except:
-			print "argument not understood"
+			print "argument not understood - either:\n\t no argument to run normally, \n\t 'dotweet' to ignore probabilities and just tweet\n\t'p' for print one or \n\tenter a number to print that many arguments"
