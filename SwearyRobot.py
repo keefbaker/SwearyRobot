@@ -43,7 +43,7 @@ proop = ( "to", "and", "it's", "not too", "less than", "worse than", "the best",
 def constructOTweet():
 	if random.randrange(20) > 13:
 		tweet = "%s%s! %s #%s%s" % (random.choice(superlative), random.choice(swear), random.choice(preposition) % random.choice(swear), random.choice(superlative), random.choice(swear))
-	elif random.randrange(20) < 8:
+	elif random.randrange(20) < 5:
 		#
 		# random mix of mail top words and swearing
 		OMGWHY = mailgen.younutter()
