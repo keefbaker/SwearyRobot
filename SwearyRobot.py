@@ -101,7 +101,7 @@ def constructOTweet():
 # use p after the python script for print test eg : SwearyRobot.py p or use an integer to print that number of messages out. You can used "dotweet" to bypass probability too
 #     also extracted out so only run if main program as this is imported by the reply scraper.
 if __name__ == "__main__": 
-	tweet = constructOTweet()
+	
 	# if no argument set arg to no to prevent exceptions
 	if len(sys.argv) > 1:
 		arg = str(sys.argv[1])
@@ -111,9 +111,11 @@ if __name__ == "__main__":
 	if arg == "p":
 		print tweet
 	elif arg == "no":
-		if random.randrange(20) < 2:
+		if random.randrange(50) < 2:
+			tweet = constructOTweet()
 			api.update_status(tweet)
 	elif arg == "dotweet":
+			tweet = constructOTweet()
 			api.update_status(tweet)
 	else:
 		try:
