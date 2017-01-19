@@ -1,0 +1,3 @@
+install:
+  - pip install tweepy, feedparser, pylint
+script: pylint --errors-only
