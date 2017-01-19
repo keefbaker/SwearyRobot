@@ -1,6 +1,6 @@
 install:
   - sudo pip install --upgrade pip
   - sudo pip install tweepy feedparser pylint
-script: pylint --errors-only
+script: pylint
 language: python
 python: "2.7"
