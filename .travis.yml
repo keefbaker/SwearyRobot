@@ -1,4 +1,4 @@
 install:
-  - pip install --upgrade pip
-  - pip install tweepy feedparser pylint
+  - sudo pip install --upgrade pip
+  - sudo pip install tweepy feedparser pylint
 script: pylint --errors-only
