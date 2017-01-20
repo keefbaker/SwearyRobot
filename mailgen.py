@@ -21,17 +21,17 @@ def grabstuff():
     global summaries
     summaries = [i["summary"] for i in Maildata["entries"]]
     hotwords = {}
-    crapwords = ("the", "a", "in", "and", "from", "for", "with", "on", "was", "at", 
-                 "earlier", "his", "her", "is", "after", "are", "they", "go", "to", 
+    crapwords = ("the", "a", "in", "and", "from", "for", "with", "on", "was", "at",
+                 "earlier", "his", "her", "is", "after", "are", "they", "go", "to",
                  "by", "that", "be", "as", "their", "have", "he", 'of', 'has', '-',
-                 'were', 'it', 'an', 'but', 'said', 'been', 'up', 'who', 'she', 
+                 'were', 'it', 'an', 'but', 'said', 'been', 'up', 'who', 'she',
                  'year', 'its', '', 'while', 'this', 'which', 'about', 'black',
-                 'before', 'had', 'not', 'one', 'or', 'more', 'new', 'over', 'can', 'than', 
-                 'being', 'you', 'all', 'two', 'will', 'may', 'now', 'only', 'your', 'some', 
-                 'out', 'last', 'made', 'mother', 'left', 'just', 'people', 'time', 'found', 
-                 'most', 'per', 'into', 'could', 'state', 'off', 'home', 'would', '(pictured)', 
-                 'them', 'if', 'when', 'daily', 'car', 'city', 'around', 'what', 'video', 'south', 
-                 'five', 'other', 'told', 'study', 'how', 'way', 'first', 'show', 'according', 'west', 
+                 'before', 'had', 'not', 'one', 'or', 'more', 'new', 'over', 'can', 'than',
+                 'being', 'you', 'all', 'two', 'will', 'may', 'now', 'only', 'your', 'some',
+                 'out', 'last', 'made', 'mother', 'left', 'just', 'people', 'time', 'found',
+                 'most', 'per', 'into', 'could', 'state', 'off', 'home', 'would', '(pictured)',
+                 'them', 'if', 'when', 'daily', 'car', 'city', 'around', 'what', 'video', 'south',
+                 'five', 'other', 'told', 'study', 'how', 'way', 'first', 'show', 'according', 'west',
                  'world', 'through', 'during', 'london,', 'following', 'need', 'even', 'men')
     for urghHeadline in summaries:
         for word in urghHeadline.split(" "):
