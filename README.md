@@ -1,7 +1,7 @@
 # SwearyRobot
 Swearing robot twitter client. 
 
-There's a gitignore for sweary_creds.py as this has the twitter api credentials in it.
+sweary_creds.py contains credentials (in my script they are environment variables)
 
 Current features it uses when chance allows:
 
