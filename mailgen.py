@@ -6,7 +6,7 @@ Get the daily fail stuff
 import random
 import feedparser
 
-class BreakOut(Exception): 
+class BreakOut(Exception):
     """
     crash out
     """
@@ -18,7 +18,7 @@ def grabstuff():
     Grabs mail headlines
     """
     Maildata = feedparser.parse('http://www.dailymail.co.uk/home/index.rss')
-    global summaries
+    global summaries # plint: disable=W0601
     summaries = [i["summary"] for i in Maildata["entries"]]
     hotwords = {}
     crapwords = ("the", "a", "in", "and", "from", "for", "with", "on", "was", "at",
@@ -43,7 +43,7 @@ def grabstuff():
                 hotwords[word] = 1
             elif word not in crapwords:
                 hotwords[word] += 1
-    global tag
+    global tag # plint: disable=W0601
     tag = []
     zimbus = sorted(hotwords.items(), key=lambda x: x[1], reverse=True)
     for f, _ in zimbus[:150]:
@@ -74,7 +74,7 @@ def mail():
     """
     Yep, catch crap
     """
-    global mailcrap
+    global mailcrap # plint: disable=W0601
     mailcrap = grab()
     if mailcrap is None:
         mail()
@@ -107,5 +107,3 @@ def biglad():
 if __name__ == "__main__":
     dumper = biglad()
     print dumper
-
-

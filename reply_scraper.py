@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 import random
 import tweepy
 from SwearyRobot import swear, twitterName
-from sweary_creds import apiKey, apiSecret, accessToken, accessSecret
+from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
 
 #
 # set auth

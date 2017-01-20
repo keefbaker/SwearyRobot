@@ -18,7 +18,7 @@ import tweepy
 from games import gamegrab
 from holly import celebgrab
 from films import dvdgrab
-from sweary_creds import apiKey, apiSecret, accessToken, accessSecret
+from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
 #
 # set auth
 auth = tweepy.OAuthHandler(apiKey, apiSecret)
@@ -28,7 +28,7 @@ twitterName = "SwearyRobot"
 
 #
 # It's combination list time!
-# 
+#
 superlative = ("Custard", "Dead", "Cunty", "Fucked", "Shitted", "Pink", "Blank", "Arsecake", "Fcuk",
                "Cock", "Insect", "Argonian", "Super", "Molested", "Ultra", "Fuckaroo", "Mega",
                "Enormo", "Mini", "Funky", "Moo", "Crap", "Ultra", "Weak", "Weepy", "Mad", "Rage",
@@ -210,8 +210,8 @@ def constructOTweet():
         #
         # make a nonsense sentence out of popular words from The Mail and swearing.
         crappo = mailgen.biglad()
-        blob = ("Nonsense!", "Yeah, right!", "Never", "Total Garbage if you ask me!", 
-                "And never a truer word..", "Fucks sake, eh?", "I need more pills.", 
+        blob = ("Nonsense!", "Yeah, right!", "Never", "Total Garbage if you ask me!",
+                "And never a truer word..", "Fucks sake, eh?", "I need more pills.",
                 "So there you go.", "I want it!")
         tweet = "%s %s! %s %s %s %s. %s #%s%s" % (random.choice(swear).capitalize(), crappo[1],
                                                   random.choice(swear).capitalize(), crappo[2],
@@ -225,12 +225,11 @@ def constructOTweet():
                                   random.choice(swear))
     return tweet
 #
-# use p after the python script for print test eg : SwearyRobot.py p or use an integer to print 
-# that number of messages out. 
+# use p after the python script for print test eg : SwearyRobot.py p or use an integer to print
+# that number of messages out.
 # You can used "dotweet" to bypass probability too
 #     also extracted out so only run if main program as this is imported by the reply scraper.
-if __name__ == "__main__": 
-    
+if __name__ == "__main__":
     # if no argument set arg to no to prevent exceptions
     if len(sys.argv) > 1:
         arg = str(sys.argv[1])
