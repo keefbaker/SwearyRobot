@@ -47,7 +47,8 @@ superlative = ("Custard", "Dead", "Cunty", "Fucked", "Shitted", "Pink", "Blank",
                "Muckchucking ", "Vomitous", "Victorian", "Ottoman-esque-", "Turdy", "Ape-like-",
                "Penis", "Burst", "Knob", "Horse", "Tiger", "Dog", "Donkey", "Hepatitis", "Bilge",
                "Torpid", "Bob-a-job-", "Shite", "Putrid", "Turd", "Spit", "Fuckknocking", "Jet",
-               "Oozing", "Worthless", "Rank", "Mockable", "Soggy ", "Moist ")
+               "Oozing", "Worthless", "Rank", "Mockable", "Soggy ", "Moist ", "Affable ",
+               "Sproingy", "Meticulous ", "Orificial ", "Phallic")
 swear = ("cuntarse", "jog on", "vom", "twatfuck", "urethra", "dogknob", "fuck", "halibutcock",
          "vole", "insect", "jackoff", "cum", "cunt", "arse", "felch", "gristbum", "gristle", "gum",
          "bum", "shit", "motherfucker", "piss", "wank", "nipple", "knob" "vomit", "penis", "twat",
@@ -58,7 +59,7 @@ swear = ("cuntarse", "jog on", "vom", "twatfuck", "urethra", "dogknob", "fuck", 
          "dangler", "cocksnot", "jizz", "goatse", "paedo", "axewound", "anus", "brownhole",
          "dogfuck", "turd", "bottysausage", "wazz", "slurry", "asshole", "monkey", "cackspider",
          "taint", "barse", "bollocks", "jerk", "residue", "scrotum", "fist", "puke", "crybaby",
-         "pustule", "mom", "vagina", "testes", "marketing bastard", "crunk", "armpit hair",
+         "pustule", "mom", "vagina", "testes", "telemarketer", "crunk", "armpit hair",
          "sweaty ballsacks", "pisspiece", "godwanger", "pierced penis pus" "dogmuck", "fascist",
          "tory", "porridge", "filth", "scum", "slag", "stain", "drip", "widge", "pig", "bag",
          "hole", "boobs", "fistule", "twerp", "cheeks", "fanny", "ejaculate", "weasel", "spank",
@@ -66,7 +67,7 @@ swear = ("cuntarse", "jog on", "vom", "twatfuck", "urethra", "dogknob", "fuck", 
          "fuckarse", "nope", "ANGRY", "happy", "joy", "jazz", "shart", "mush", "skank", "skunk",
          "slash", "dirt", "sewage", "muck", "dung", "crud", "cream", "asshat", "shyster",
          "shitface", "blast", "blag", "nugget", "ballbags", "Shitfunnel", "pubes", "witch",
-         "horror", "terror", "junkie", "failure", "weaksauce")
+         "horror", "terror", "junkie", "failure", "weaksauce", "burp", "peas", "eggs", "donkey")
 preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it is... %s.",
                "For the love of %s.", "For %s's sake!",
                "I'm raging about %s.", "It... %s just makes me sad.",
@@ -89,7 +90,8 @@ preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it i
                "Hotter than %s,", "Worst %s ever.", "Lick my %s!", "I wish I could %s. :(",
                "A mega%s..", ":) %s :( :/", "That %sing bastard!", "%s-a-tron!", "Well, %s me!",
                "How much %s do you need??", "Tell me more about %s!",
-               "You failed %s!", "%s is nicer than this.", "I feel like a %s")
+               "You failed %s!", "%s is nicer than this.", "I feel like a %s",
+               "My life is %s.", "Is %s what it's come to?", "Aaaaaaaaaaaaaaaah %s!!!!!!")
 stuff = ("New World Order", "funeral home", "tea", "toilet", "post office", "work canteen",
          "fish fingers", "Fenton pub", "salad bowl", "lemon juice", "helicopter cockpit",
          "DFS sale", "prison shower", "bolognese", "chistmas cake", "garden", "nude",
@@ -99,15 +101,16 @@ stuff = ("New World Order", "funeral home", "tea", "toilet", "post office", "wor
          "rotting turkey", "butthole of Santa", "dark one's testes", "nuclear waste barrel",
          "only copy of Half life 3", "last open Woolworths", "word of God", "ford fiesta",
          "nun's cleavage", "cop's gun holster", "punch bowl", "estate agent's dignity",
-         "bag of haribo", "vegan restaurant", "latest episode of Corrie")
+         "bag of haribo", "vegan restaurant", "latest episode of Corrie", "french toast",
+         "maven repository", "burger van")
 dang = ("Enough of", "Why", "How do you", "I never did", "No more", "Had my fill of",
         "Please stop the", "Less of the", "So much for", "And then", "Don't talk to me about",
         "We've run out of", "So then,", "Some more", "A new", "What's with",
         "Is there any point to", "Fine then.", "Someone likes", "I know all about",
-        "Diseases are spread by")
+        "Diseases are spread by", "What? Some", "Nothing but")
 dong = ("So I said,", "Well he thought,", "I don't want", "He said to me,",
         "I never wanted to hear", "I asked for oil, I didn't say,", "Philosophy:",
-        "Why all the,", "Never mind, I said,", "Fantasically,", "She retorted,")
+        "Why all the,", "Never mind, I said,", "Fantasically,", "She retorted,", "Sad eh?")
 celebline = ("I wish %s would %s %s!", "%s has %s'd in the %s. Disgraceful!",
              "I know %s is famous but %s a %s!", "%s, a classic %s %s", "Woo! %s #%s%s",
              "Fuck %s, I'm %sed off with all the %s.",
@@ -126,7 +129,7 @@ noidea = ("No idea what this %s is about.", "This subject gets my %s.", "What a 
 proop = ("to", "and", "it's", "not too", "less than", "worse than", "the best", "I think",
          "A pile of", "Astoundingly", "Makes me so happy I could", "not particularly", "in",
          "similar to", "bog all like", "amazingly a real", "a disappointing", "sadly eqautes to",
-         "a goddamn", "what's", "why", "close as arse to")
+         "a goddamn", "what's", "why", "close as arse to", "not", "as", "felchbugger a")
 
 #
 # Time to construct the tweet
