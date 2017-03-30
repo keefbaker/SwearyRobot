@@ -206,13 +206,21 @@ def constructOTweet():
                                                 random.choice(superlative), random.choice(swear),
                                                 random.choice(proop), random.choice(swear),
                                                 random.choice(superlative), random.choice(swear))
+    elif random.randrange(20) < 3:
+        #
+        # check top 10 dvds and comment
+        dvd = bbcworld()
+        tweet = "%s %s... %s%s? %s %s #%s%s" % (random.choice(swear).capitalize(), dvd,
+                                                random.choice(superlative), random.choice(swear),
+                                                random.choice(proop), random.choice(swear),
+                                                random.choice(superlative), random.choice(swear))
     elif random.randrange(20) < 5:
         #
         # grab some random bollocks from the Daily mail and comment oddly on it.
         crappo = mailgen.biglad()
         fksakedailymail = ("Daily Mail says", "The Mail says", "Fucking news..",
                            "I heard", "In the news: ", "", "What? Apparently ", "Sadly ")
-        tweet = "%s '%s' I say %s %s %s %s #%s%s" % (random.choice(fksakedailymail), crappo[0],
+        tweet = "%s'%s' I say %s %s %s %s #%s%s" % (random.choice(fksakedailymail), crappo[0],
                                                      random.choice(swear), crappo[1],
                                                      random.choice(swear), crappo[2],
                                                      crappo[3], random.choice(swear))

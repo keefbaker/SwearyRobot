@@ -13,7 +13,7 @@ def choppy(data):
     ]
     lines = random.choice(headlines).split(" ")
     banga = 10 if len(lines) >= 10 else len(lines)
-    start = 4 if len(lines) >= 8 else 0
+    start = 4 if len(lines) >= 8 else 1
     words = [word for word in lines[0:random.randrange(start, banga)]]
     return " ".join(words)
 
