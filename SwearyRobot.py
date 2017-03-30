@@ -12,7 +12,8 @@ Master sweary robot program
 # are in the import statement below
 #
 from __future__ import unicode_literals
-import sys, os
+import sys
+import os
 import random
 import mailgen
 import tweepy
@@ -154,7 +155,7 @@ def constructOTweet():
         # check top 10 games and comment
         nooz = nytimes()
         tweet = "%s %s%s #%s%s" % (nooz, random.choice(superlative), random.choice(swear),
-                                          random.choice(superlative), random.choice(swear))
+                                   random.choice(superlative), random.choice(swear))
     elif random.randrange(20) < 4:
         #
         # random mix of mail top words and swearing
@@ -193,7 +194,7 @@ def constructOTweet():
         crappo = mailgen.biglad()
         fksakedailymail = ("Daily Mail says", "The Mail says", "Fucking news..",
                            "NER DERLY MERL SERZ", "Daily fucking Mail:",
-                           "The wisdom of the Mail:", "Noozpapers say", "I heard", 
+                           "The wisdom of the Mail:", "Noozpapers say", "I heard",
                            "In the fucking news: ", "", "What? Apparently ", "Sadly ")
         tweet = "%s '%s' I say %s %s %s %s #%s%s" % (random.choice(fksakedailymail), crappo[0],
                                                      random.choice(swear), crappo[1],
@@ -203,8 +204,8 @@ def constructOTweet():
         #
         # grab followers so we can randomly insult one
         ids = [u.screen_name for u in tweepy.Cursor(api.followers, screen_name=twitterName).items()]
-        fool_line = [ "@%s OI %s! %s in the %s, you fucking %s!!", "I wish @%s would %s %s up %s", 
-                      "Hey @%s!! %s a %s while %s is %s you %s", "@%s in %s with %s. Total %s %s. #%s"]
+        fool_line = ["@%s OI %s! %s in the %s, you fucking %s!!", "I wish @%s would %s %s up %s",
+                     "Hey @%s!! %s a %s while %s is %s you %s", "@%s in %s with %s. Total %s %s. #%s"]
         tweet = random.choice(fool_line) % (
             random.choice(ids), random.choice(superlative) + random.choice(swear),
             random.choice(swear), random.choice(stuff), random.choice(swear))
