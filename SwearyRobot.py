@@ -24,12 +24,12 @@ from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: 
 #
 # set auth
 try:
-  auth = tweepy.OAuthHandler(apiKey, apiSecret)
-  auth.set_access_token(accessToken, accessSecret)
-  api = tweepy.API(auth)
-  twitterName = "SwearyRobot"
+    auth = tweepy.OAuthHandler(apiKey, apiSecret)
+    auth.set_access_token(accessToken, accessSecret)
+    api = tweepy.API(auth)
+    twitterName = "SwearyRobot"
 except:
-  pass
+    pass
 #
 # It's combination list time!
 #
@@ -224,7 +224,7 @@ def constructOTweet():
         crappo = mailgen.biglad()
         blob = ("Nonsense!", "Yeah, right!", "Never", "Total Garbage if you ask me!",
                 "And never a truer word..", "Fucks sake, eh?", "I need more pills.",
-                "So there you go.", "I want it!")
+                "So there you go.", "I want it!", "CRYFACE!", "waaaaah", "HUNGREE!")
         tweet = "%s %s! %s %s %s %s. %s #%s%s" % (random.choice(swear).capitalize(), crappo[1],
                                                   random.choice(swear).capitalize(), crappo[2],
                                                   random.choice(swear), crappo[4],
@@ -246,7 +246,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         arg = str(sys.argv[1])
     else:
-        arg = "no"
+        arg = str("no")
     # process command line option (if any)
     if arg == "p":
         print constructOTweet()
@@ -261,10 +261,10 @@ if __name__ == "__main__":
         try:
             number = int(arg)
             for i in range(0, number):
-              try:
-                print constructOTweet()
-              except:
-                pass
+                try:
+                    print constructOTweet()
+                except:
+                    pass
         except Exception as e:
             print str(e)
             exc_type, exc_obj, exc_tb = sys.exc_info()
