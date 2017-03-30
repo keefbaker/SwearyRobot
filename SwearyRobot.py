@@ -185,6 +185,34 @@ def constructOTweet():
         tweet = "%s! %s%s %s %s #%s%s" % (game, random.choice(superlative), random.choice(swear),
                                           random.choice(proop), random.choice(swear),
                                           random.choice(superlative), random.choice(swear))
+    elif random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
+        item = bbcworld(True)
+        stuff = item.split(" ")
+        stuff[random.randrange(0,len(stuff))] = random.choice(swear)
+        tweet = " ".join(stuff)
+    elif random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
+        item = bbcent(True)
+        stuff = item.split(" ")
+        stuff[random.randrange(0,len(stuff))] = random.choice(swear)
+        tweet = " ".join(stuff)
+    elif random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
+        item = skynews(True)
+        stuff = item.split(" ")
+        stuff[random.randrange(0,len(stuff))] = random.choice(swear)
+        tweet = " ".join(stuff)
+    elif random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
+        item = nytimes(True)
+        stuff = item.split(" ")
+        stuff[random.randrange(0,len(stuff))] = random.choice(swear)
+        tweet = " ".join(stuff)
     elif random.randrange(20) < 3:
         #
         # check top 10 games and comment
@@ -221,9 +249,9 @@ def constructOTweet():
         fksakedailymail = ("Daily Mail says", "The Mail says", "Fucking news..",
                            "I heard", "In the news: ", "", "What? Apparently ", "Sadly ")
         tweet = "%s'%s' I say %s %s %s %s #%s%s" % (random.choice(fksakedailymail), crappo[0],
-                                                     random.choice(swear), crappo[1],
-                                                     random.choice(swear), crappo[2],
-                                                     crappo[3], random.choice(swear))
+                                                    random.choice(swear), crappo[1],
+                                                    random.choice(swear), crappo[2],
+                                                    crappo[3], random.choice(swear))
     # elif random.randrange(20) < 2:
     #     #
     #     # grab followers so we can randomly insult one
@@ -269,8 +297,8 @@ def constructOTweet():
             zoos.append(item)
             zoos.append(random.choice(swear))
         zoos[-1] = "#%s" % zoos[-1]
-        nooz = str(" ".join(zoos))
-        tweet = nooz
+        noo = " ".join(zoos)
+        tweet = noo
     #     tweet = ""
     #     while len(tweet) < 150:
     #         tweet += "%s " % random.choice(swear)
