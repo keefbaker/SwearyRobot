@@ -19,6 +19,7 @@ import tweepy
 from games import gamegrab
 from holly import celebgrab
 from films import dvdgrab
+from newyorktimes import nytimes
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
 
 #
@@ -54,7 +55,7 @@ superlative = ("Custard", "Dead", "Cunty", "Fucked", "Shitted", "Pink", "Blank",
                "Oozing", "Worthless", "Rank", "Mockable", "Soggy ", "Moist ", "Affable ",
                "Sproingy", "Meticulous ", "Orificial ", "Phallic")
 swear = ("cuntarse", "jog on", "vom", "twatfuck", "urethra", "dogknob", "fuck", "halibutcock",
-         "vole", "insect", "jackoff", "cum", "cunt", "arse", "felch", "gristbum", "gristle", "gum",
+         "vole", "insect", "jackoff", "cum", "cunt", "arse", "felch", "crustbum", "gristle", "gum",
          "bum", "shit", "motherfucker", "piss", "wank", "nipple", "knob" "vomit", "penis", "twat",
          "cock", "dumb", "fucknut", "cuntface", "dribble", "wipe", "chunder", "bastard",
          "mugfucker", "assclown", "bitch", "boner", "clitoris", "chode", "dickhead", "cuntrag",
@@ -148,6 +149,12 @@ def constructOTweet():
         tweet = "%s%s! %s #%s%s" % (random.choice(superlative), random.choice(swear),
                                     random.choice(preposition) % random.choice(swear),
                                     random.choice(superlative), random.choice(swear))
+    elif random.randrange(20) < 9:
+        #
+        # check top 10 games and comment
+        nooz = nytimes()
+        tweet = "%s %s%s #%s%s" % (nooz, random.choice(superlative), random.choice(swear),
+                                          random.choice(superlative), random.choice(swear))
     elif random.randrange(20) < 4:
         #
         # random mix of mail top words and swearing
@@ -230,6 +237,10 @@ def constructOTweet():
                                                   random.choice(swear), crappo[4],
                                                   random.choice(blob), crappo[3],
                                                   random.choice(swear))
+    elif random.randrange(20) > 7:
+        tweet = ""
+        while len(tweet) < 150:
+            tweet += "%s " % random.choice(swear)
     else:
         masstrack = random.choice(superlative) + random.choice(swear)
         supermasstrack = random.choice(preposition) % masstrack
