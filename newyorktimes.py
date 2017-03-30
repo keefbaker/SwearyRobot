@@ -18,7 +18,7 @@ def nytimes():
         i["title"].replace("'", "").replace('"', "").replace(":", "").encode("ascii", "ignore") \
         for i in data["entries"]
     ]
-    words = [word for word in random.choice(headlines).split(" ")[0:random.randrange(2,10)]]
+    words = [word for word in random.choice(headlines).split(" ")[0:random.randrange(2, 10)]]
     return " ".join(words)
 #
 # for test runs
