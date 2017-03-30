@@ -13,7 +13,8 @@ def choppy(data):
     ]
     lines = random.choice(headlines).split(" ")
     banga = 10 if len(lines) >= 10 else len(lines)
-    words = [word for word in lines[0:random.randrange(4, banga)]]
+    start = 4 if len(lines) >= 8 else 0
+    words = [word for word in lines[0:random.randrange(start, banga)]]
     return " ".join(words)
 
 def nytimes():
@@ -26,6 +27,18 @@ def nytimes():
     #print data
     return choppy(data)
 
+def bbcent():
+    """
+    crappy celeb news
+    """
+    data = feedparser.parse('http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml?edition=uk')
+    return choppy(data)
+def bbcworld():
+    """
+    crappy celeb news
+    """
+    data = feedparser.parse('http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk')
+    return choppy(data)
 
 def skynews():
     """
@@ -39,3 +52,6 @@ def skynews():
 if __name__ == "__main__":
     print nytimes()
     print skynews()
+    print bbcworld()
+
+    
