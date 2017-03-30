@@ -11,7 +11,8 @@ Master sweary robot program
 # And put your api credentials just as variables into a sweary_creds.py, variable names
 # are in the import statement below
 #
-import sys
+from __future__ import unicode_literals
+import sys, os
 import random
 import mailgen
 import tweepy
@@ -19,20 +20,23 @@ from games import gamegrab
 from holly import celebgrab
 from films import dvdgrab
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
+
 #
 # set auth
-auth = tweepy.OAuthHandler(apiKey, apiSecret)
-auth.set_access_token(accessToken, accessSecret)
-api = tweepy.API(auth)
-twitterName = "SwearyRobot"
-
+try:
+  auth = tweepy.OAuthHandler(apiKey, apiSecret)
+  auth.set_access_token(accessToken, accessSecret)
+  api = tweepy.API(auth)
+  twitterName = "SwearyRobot"
+except:
+  pass
 #
 # It's combination list time!
 #
 superlative = ("Custard", "Dead", "Cunty", "Fucked", "Shitted", "Pink", "Blank", "Arsecake", "Fcuk",
                "Cock", "Insect", "Argonian", "Super", "Molested", "Ultra", "Fuckaroo", "Mega",
                "Enormo", "Mini", "Funky", "Moo", "Crap", "Ultra", "Weak", "Weepy", "Mad", "Rage",
-               "Sad", "Farty", "Disgust-o-", "Bilious", "Pre-raphaelite-", "Vomito", "Arthurian-",
+               "Sad", "Farty", "Disgust-o-", "Bilious", "Pre-raphaelite-", "Vomito", "Arsey-",
                "Bad", "cavernous", "Good", "Insdious", "Rupert-Murdochian-", "Cry", "Foxnews",
                "Stilted-", "Impossa", "Bleeding ", "Nostril", "Diahorretic", "Enochian ",
                "Cockripping ", "Sharp", "Evil", "Disturbing ", "Jerkwad ", "Screwy ",
@@ -57,7 +61,7 @@ swear = ("cuntarse", "jog on", "vom", "twatfuck", "urethra", "dogknob", "fuck", 
          "dipshit", "douche", "nutsack", "pecker", "prick", "queef", "rimjob", "scrote", "shitbag",
          "skullfuck", "turd", "twatlips", "tit", "fart", "flaps", "jamrag", "bellend", "helmet",
          "dangler", "cocksnot", "jizz", "goatse", "paedo", "axewound", "anus", "brownhole",
-         "dogfuck", "turd", "bottysausage", "wazz", "slurry", "asshole", "monkey", "cackspider",
+         "dogfuck", "turd", "bottysausage", "wazz", "slurry", "asshole", "monkey", "livershit"
          "taint", "barse", "bollocks", "jerk", "residue", "scrotum", "fist", "puke", "crybaby",
          "pustule", "mom", "vagina", "testes", "telemarketer", "crunk", "armpit hair",
          "sweaty ballsacks", "pisspiece", "godwanger", "pierced penis pus" "dogmuck", "fascist",
@@ -91,7 +95,8 @@ preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it i
                "A mega%s..", ":) %s :( :/", "That %sing bastard!", "%s-a-tron!", "Well, %s me!",
                "How much %s do you need??", "Tell me more about %s!",
                "You failed %s!", "%s is nicer than this.", "I feel like a %s",
-               "My life is %s.", "Is %s what it's come to?", "Aaaaaaaaaaaaaaaah %s!!!!!!")
+               "My life is %s.", "Is %s what it's come to?", "Aaaaaaaaaaaaaaaah %s!!!!!!", "New %s?"
+               "Floweers like %s", "Lords of %s", "%s is the best", "No %s in Tesco.", "It's %s!")
 stuff = ("New World Order", "funeral home", "tea", "toilet", "post office", "work canteen",
          "fish fingers", "Fenton pub", "salad bowl", "lemon juice", "helicopter cockpit",
          "DFS sale", "prison shower", "bolognese", "chistmas cake", "garden", "nude",
@@ -102,7 +107,7 @@ stuff = ("New World Order", "funeral home", "tea", "toilet", "post office", "wor
          "only copy of Half life 3", "last open Woolworths", "word of God", "ford fiesta",
          "nun's cleavage", "cop's gun holster", "punch bowl", "estate agent's dignity",
          "bag of haribo", "vegan restaurant", "latest episode of Corrie", "french toast",
-         "maven repository", "burger van")
+         "maven repository", "burger van", "pointless stenching quagmire", "heart of darkness")
 dang = ("Enough of", "Why", "How do you", "I never did", "No more", "Had my fill of",
         "Please stop the", "Less of the", "So much for", "And then", "Don't talk to me about",
         "We've run out of", "So then,", "Some more", "A new", "What's with",
@@ -129,7 +134,8 @@ noidea = ("No idea what this %s is about.", "This subject gets my %s.", "What a 
 proop = ("to", "and", "it's", "not too", "less than", "worse than", "the best", "I think",
          "A pile of", "Astoundingly", "Makes me so happy I could", "not particularly", "in",
          "similar to", "bog all like", "amazingly a real", "a disappointing", "sadly eqautes to",
-         "a goddamn", "what's", "why", "close as arse to", "not", "as", "felchbugger a")
+         "a goddamn", "what's", "why", "close as arse to", "not", "as", "felchbugger a"
+         "what's the point of")
 
 #
 # Time to construct the tweet
@@ -180,7 +186,8 @@ def constructOTweet():
         crappo = mailgen.biglad()
         fksakedailymail = ("Daily Mail says", "The Mail says", "Fucking news..",
                            "NER DERLY MERL SERZ", "Daily fucking Mail:",
-                           "The wisdom of the Mail:", "Noozpapers say", "I heard")
+                           "The wisdom of the Mail:", "Noozpapers say", "I heard", 
+                           "In the fucking news: ", "", "What? Apparently ", "Sadly ")
         tweet = "%s '%s' I say %s %s %s %s #%s%s" % (random.choice(fksakedailymail), crappo[0],
                                                      random.choice(swear), crappo[1],
                                                      random.choice(swear), crappo[2],
@@ -189,7 +196,9 @@ def constructOTweet():
         #
         # grab followers so we can randomly insult one
         ids = [u.screen_name for u in tweepy.Cursor(api.followers, screen_name=twitterName).items()]
-        tweet = "@%s OI %s! %s in the %s, you fucking %s!!" % (
+        fool_line = [ "@%s OI %s! %s in the %s, you fucking %s!!", "I wish @%s would %s %s up %s", 
+                      "Hey @%s!! %s a %s while %s is %s you %s", "@%s in %s with %s. Total %s %s. #%s"]
+        tweet = random.choice(fool_line) % (
             random.choice(ids), random.choice(superlative) + random.choice(swear),
             random.choice(swear), random.choice(stuff), random.choice(swear))
     elif random.randrange(20) < 8:
@@ -252,8 +261,15 @@ if __name__ == "__main__":
         try:
             number = int(arg)
             for i in range(0, number):
+              try:
                 print constructOTweet()
-        except:
+              except:
+                pass
+        except Exception as e:
+            print str(e)
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            print(exc_type, fname, exc_tb.tb_lineno)
             print "argument not understood - either:\n\t no argument to run normally,"
             print "\t 'dotweet' to ignore probabilities and just tweet\n\t'p' for print one or "
             print "\tenter a number to print that many arguments"
