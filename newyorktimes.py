@@ -7,6 +7,9 @@ import feedparser
 #
 # Main prog
 def choppy(data, force=False):
+    """
+    Chops what u need
+    """
     headlines = [
         i["title"].replace("'", "").replace('"', "").replace(":", "").encode("ascii", "ignore") \
         for i in data["entries"]
@@ -49,7 +52,6 @@ def skynews(force=False):
     """
     data = feedparser.parse('http://feeds.skynews.com/feeds/rss/uk.xml')
     return choppy(data, force)
-  
 #
 # for test runs
 if __name__ == "__main__":
@@ -57,5 +59,4 @@ if __name__ == "__main__":
     print skynews()
     print bbcworld()
     print bbcent(True)
-
     

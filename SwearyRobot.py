@@ -29,7 +29,7 @@ try:
     auth = tweepy.OAuthHandler(apiKey, apiSecret)
     auth.set_access_token(accessToken, accessSecret)
     api = tweepy.API(auth)
-#    twitterName = "SwearyRobot"
+    twitterName = "SwearyRobot"
 except:
     pass
 #
@@ -189,38 +189,38 @@ def constructOTweet():
         #
         # check top 10 games and comment
         item = bbcworld(True)
-        stuff = item.split(" ")
-        stuff[random.randrange(0,len(stuff))] = random.choice(swear)
-        tweet = " ".join(stuff)
+        blags = item.split(" ")
+        blags[random.randrange(0, len(blags))] = random.choice(swear)
+        tweet = " ".join(blags)
     elif random.randrange(20) < 5:
         #
         # check top 10 games and comment
         item = bbcworld(True)
-        stuff = item.split(" ")
-        stuff[random.randrange(0, len(stuff))] = random.choice(swear)
-        tweet = "%s. %s %s #%s" % (" ".join(stuff), random.choice(butscrewthis),
+        blags = item.split(" ")
+        blags[random.randrange(0, len(blags))] = random.choice(swear)
+        tweet = "%s. %s %s #%s" % (" ".join(blags), random.choice(butscrewthis),
                                    random.choice(swear), random.choice(swear))
     elif random.randrange(20) < 5:
         #
         # check top 10 games and comment
         item = bbcent(True)
-        stuff = item.split(" ")
-        stuff[random.randrange(0, len(stuff))] = random.choice(swear)
-        tweet = " ".join(stuff)
+        blags = item.split(" ")
+        blags[random.randrange(0, len(blags))] = random.choice(swear)
+        tweet = " ".join(blags)
     elif random.randrange(20) < 5:
         #
         # check top 10 games and comment
         item = skynews(True)
-        stuff = item.split(" ")
-        stuff[random.randrange(0, len(stuff))] = random.choice(swear)
-        tweet = " ".join(stuff)
+        blags = item.split(" ")
+        blags[random.randrange(0, len(blags))] = random.choice(swear)
+        tweet = " ".join(blags)
     elif random.randrange(20) < 5:
         #
         # check top 10 games and comment
         item = nytimes(True)
-        stuff = item.split(" ")
-        stuff[random.randrange(0, len(stuff))] = random.choice(swear)
-        tweet = " ".join(stuff)
+        blags = item.split(" ")
+        blags[random.randrange(0, len(blags))] = random.choice(swear)
+        tweet = " ".join(blags)
     elif random.randrange(20) < 3:
         #
         # check top 10 games and comment
