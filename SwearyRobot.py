@@ -195,23 +195,31 @@ def constructOTweet():
     elif random.randrange(20) < 5:
         #
         # check top 10 games and comment
+        item = bbcworld(True)
+        stuff = item.split(" ")
+        stuff[random.randrange(0, len(stuff))] = random.choice(swear)
+        tweet = "%s. %s %s #%s" % (" ".join(stuff), random.choice(butscrewthis),
+                                   random.choice(swear), random.choice(swear))
+    elif random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
         item = bbcent(True)
         stuff = item.split(" ")
-        stuff[random.randrange(0,len(stuff))] = random.choice(swear)
+        stuff[random.randrange(0, len(stuff))] = random.choice(swear)
         tweet = " ".join(stuff)
     elif random.randrange(20) < 5:
         #
         # check top 10 games and comment
         item = skynews(True)
         stuff = item.split(" ")
-        stuff[random.randrange(0,len(stuff))] = random.choice(swear)
+        stuff[random.randrange(0, len(stuff))] = random.choice(swear)
         tweet = " ".join(stuff)
     elif random.randrange(20) < 5:
         #
         # check top 10 games and comment
         item = nytimes(True)
         stuff = item.split(" ")
-        stuff[random.randrange(0,len(stuff))] = random.choice(swear)
+        stuff[random.randrange(0, len(stuff))] = random.choice(swear)
         tweet = " ".join(stuff)
     elif random.randrange(20) < 3:
         #
