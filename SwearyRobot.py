@@ -337,7 +337,7 @@ if __name__ == "__main__":
     if arg == "p":
         print constructOTweet()
     elif arg == "no":
-        if random.randrange(50) < 3:
+        if random.randrange(50) < 5:
             tweeter = constructOTweet()
             api.update_status(tweeter)
     elif arg == "dotweet":
