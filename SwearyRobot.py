@@ -69,13 +69,14 @@ swear = ("cuntarse", "jog on", "vom", "twatfuck", "urethra", "dogknob", "fuck", 
          "taint", "barse", "bollocks", "jerk", "residue", "scrotum", "fist", "puke", "crybaby",
          "pustule", "mom", "vagina", "testes", "telemarketer", "crunk", "armpit hair",
          "sweaty ballsacks", "pisspiece", "godwanger", "pierced penis pus" "dogmuck", "fascist",
-         "tory", "porridge", "filth", "scum", "slag", "stain", "drip", "widge", "pig", "bag",
+         "bubble", "porridge", "filth", "scum", "slag", "stain", "drip", "widge", "pig", "bag",
          "hole", "boobs", "fistule", "twerp", "cheeks", "fanny", "ejaculate", "weasel", "spank",
          "vibrator", "corpse", "bowels", "pus", "balls", "gobshite", "bong", "stink", "stench",
          "fuckarse", "nope", "ANGRY", "happy", "joy", "jazz", "shart", "mush", "skank", "skunk",
          "slash", "dirt", "sewage", "muck", "dung", "crud", "cream", "asshat", "shyster",
          "shitface", "blast", "blag", "nugget", "ballbags", "Shitfunnel", "pubes", "witch",
-         "horror", "terror", "junkie", "failure", "weaksauce", "burp", "peas", "eggs", "donkey")
+         "cthulu-arse", "terror", "junkie", "failure", "weaksauce", "burp", "peas", "eggs", "donkey",
+         "dangledong", "chuck", "shite", "punk-arse", "useless")
 preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it is... %s.",
                "For the love of %s.", "For %s's sake!",
                "I'm raging about %s.", "It... %s just makes me sad.",
@@ -164,12 +165,11 @@ def constructOTweet():
         nooz = nytimes()
         tweet = "%s %s%s #%s%s" % (nooz, random.choice(superlative), random.choice(swear),
                                    random.choice(superlative), random.choice(swear))
-    elif random.randrange(20) < 3:
+    elif random.randrange(20) < 2:
         #
         # random mix of mail top words and swearing
         OMGWHY = mailgen.younutter()
         OMGWHY += [o for o in swear]
-        OMGWHY += [o for o in proop]
         tweet = "%s %s %s %s! %s %s? %s %s #%s%s" % (random.choice(OMGWHY).capitalize(),
                                                      random.choice(OMGWHY),
                                                      random.choice(OMGWHY),
@@ -251,7 +251,7 @@ def constructOTweet():
         #
         # grab some random bollocks from the Daily mail and comment oddly on it.
         crappo = mailgen.biglad()
-        fksakedailymail = ("Daily Mail says", "The Mail says", "Fucking news..",
+        fksakedailymail = ("Fucking news..",
                            "I heard", "In the news: ", "", "What? Apparently ", "Sadly ")
         tweet = "%s'%s' I say %s %s %s %s #%s%s" % (random.choice(fksakedailymail), crappo[0],
                                                     random.choice(swear), crappo[1],
