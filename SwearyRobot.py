@@ -35,8 +35,7 @@ except:
 #
 # It's combination list time!
 #
-rss = ("nytimes", "skynews", "bbcent", "bbcworld", "guardian", "lowcarb", "gamegrab", "dvdgrab", 
-       "denofgeek", "science", "rockpaper", "compweek", "hedge", "metal", "music")
+rss = getmahfeeds()
 superlative = ("Custard", "Dead", "Cunty", "Fucked", "Shitted", "Pink", "Blank", "Arsecake", "Fcuk",
                "Cock", "Insect", "Argonian", "Super", "Molested", "Ultra", "Fuckaroo", "Mega",
                "Enormo", "Mini", "Funky", "Moo", "Crap", "Ultra", "Weak", "Weepy", "Mad", "Rage",

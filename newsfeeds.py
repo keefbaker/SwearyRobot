@@ -108,10 +108,15 @@ def metal(force=False):
     """
     data = feedparser.parse('http://www.metalstorm.net/rss/news.xml')
     return choppy(data, force)
+def getmahfeeds():
+    return ("nytimes", "skynews", "bbcent", "bbcworld", "guardian", "lowcarb", "gamegrab", "dvdgrab", 
+       "denofgeek", "science", "rockpaper", "compweek", "hedge", "metal", "music")
 #
 # for test runs
 if __name__ == "__main__":
-    lists = [ "lowcarb", "guardian", "skynews", "nytimes", "bbcent", "compweek"]
+    lists = ["lowcarb", "guardian", "skynews", 
+             "nytimes", "bbcent", "compweek", 
+             "hedge", "denofgeef"]
     #print eval(random.choice(lists) + "(True)")
     print metal(True)
     
