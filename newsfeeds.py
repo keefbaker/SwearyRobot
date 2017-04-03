@@ -88,10 +88,17 @@ def compweek(force=False):
     """
     data = feedparser.parse('http://www.computerweekly.com/rss/IT-security.xml')
     return choppy(data, force)
+def hedge(force=False):
+    """
+    Stuff
+    """
+    data = feedparser.parse('http://feeds.feedburner.com/zerohedge/feed')
+    return choppy(data, force)
+
 #
 # for test runs
 if __name__ == "__main__":
     lists = [ "lowcarb", "guardian", "skynews", "nytimes", "bbcent", "compweek"]
     #print eval(random.choice(lists) + "(True)")
-    print compweek(True)
+    print hedge(True)
     
