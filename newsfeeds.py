@@ -95,10 +95,23 @@ def hedge(force=False):
     data = feedparser.parse('http://feeds.feedburner.com/zerohedge/feed')
     return choppy(data, force)
 
+def music(force=False):
+    """
+    Stuff
+    """
+    data = feedparser.parse('http://www.music-news.com/rss/UK/news?includeCover=true')
+    return choppy(data, force)
+
+def metal(force=False):
+    """
+    Stuff
+    """
+    data = feedparser.parse('http://www.metalstorm.net/rss/news.xml')
+    return choppy(data, force)
 #
 # for test runs
 if __name__ == "__main__":
     lists = [ "lowcarb", "guardian", "skynews", "nytimes", "bbcent", "compweek"]
     #print eval(random.choice(lists) + "(True)")
-    print hedge(True)
+    print metal(True)
     
