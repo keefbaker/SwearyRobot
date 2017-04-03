@@ -119,7 +119,7 @@ def getmahfeeds():
 if __name__ == "__main__":
     lists = ["lowcarb", "guardian", "skynews",
              "nytimes", "bbcent", "compweek",
-             "hedge", "denofgeef"]
+             "hedge", "denofgeek"]
     #print eval(random.choice(lists) + "(True)")
     print metal(True)
     

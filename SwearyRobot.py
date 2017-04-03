@@ -209,7 +209,7 @@ def constructOTweet():
     elif random.randrange(20) < 8:
         #
         # check low carb recipes
-        item = lowcarb(True)
+        item = eval(random.choice(rss) + "()")
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = random.choice(celebline) % (" ".join(blags), random.choice(swear),
