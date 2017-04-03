@@ -180,7 +180,7 @@ def constructOTweet():
                                                      random.choice(OMGWHY))
     elif random.randrange(20) < 5:
         #
-        # check top 10 games and comment
+        # check top 10 games and replace a word
         item = gamegrab()
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
@@ -194,14 +194,14 @@ def constructOTweet():
                                           random.choice(superlative), random.choice(swear))
     elif random.randrange(20) < 5:
         #
-        # check top 10 games and comment
+        # check bbc world 
         item = bbcworld(True)
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = " ".join(blags)
     elif random.randrange(20) < 5:
         #
-        # check top 10 games and comment
+        # check world news, replace a word
         item = bbcworld(True)
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
@@ -209,7 +209,7 @@ def constructOTweet():
                                    random.choice(swear), random.choice(swear))
     elif random.randrange(20) < 5:
         #
-        # check top 10 games and comment
+        # check low carb recipes
         item = lowcarb(True)
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
@@ -224,41 +224,41 @@ def constructOTweet():
         tweet = " ".join(blags)
     elif random.randrange(20) < 5:
         #
-        # check top 10 games and comment
+        # Replace a dvd word
         item = dvdgrab()
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = " ".join(blags)
     elif random.randrange(20) < 5:
         #
-        # check top 10 games and comment
+        # check The Guardian
         item = guardian(True)
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = " ".join(blags)
     elif random.randrange(20) < 5:
         #
-        # check top 10 games and comment
+        # check Sky News
         item = skynews(True)
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = " ".join(blags)
     elif random.randrange(20) < 5:
         #
-        # check top 10 games and comment
+        # check New York times
         item = nytimes(True)
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = " ".join(blags)
     elif random.randrange(20) < 3:
         #
-        # check top 10 games and comment
+        # check BBC Entertainment
         game = bbcent()
         tweet = "%s %s #%s%s" % (game, random.choice(swear),
                                  random.choice(superlative), random.choice(swear))
     elif random.randrange(20) < 7:
         #
-        # check top 10 games and comment
+        # check BBC World News
         game = bbcworld()
         tweet = "%s%s! %s %s #%s%s" % (random.choice(superlative), random.choice(swear),
                                        game, random.choice(swear),
@@ -273,7 +273,7 @@ def constructOTweet():
                                                 random.choice(superlative), random.choice(swear))
     elif random.randrange(20) < 3:
         #
-        # check top 10 dvds and comment
+        # check bbc world and comment
         dvd = bbcworld()
         tweet = "%s %s... %s%s? %s %s #%s%s" % (random.choice(swear).capitalize(), dvd,
                                                 random.choice(superlative), random.choice(swear),
