@@ -20,7 +20,7 @@ import tweepy
 from games import gamegrab
 from holly import celebgrab
 from films import dvdgrab
-from newyorktimes import nytimes, skynews, bbcent, bbcworld, guardian
+from newsfeeds import nytimes, skynews, bbcent, bbcworld, guardian, lowcarb
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
 
 #
@@ -129,6 +129,7 @@ celebline = ("I wish %s would %s %s!", "%s has %s'd in the %s. Disgraceful!",
              "%s is my hero. Anyone who has a problem with that can %s %s!",
              "I love %s so much I could %s %s!",
              "I'm happy %s %s's %s! Yay!",
+             "Nothing like %s to start the %s day. #%s",
              "The most important person alive is %s. Without %s we would %s.")
 butscrewthis = ("But screw this", "Toss off", "Piles of" "Great, more", "Bugger", "No point in",
                 "Loving the", "I can't live without", "I can still taste", "Oh, car full of",
@@ -200,6 +201,14 @@ def constructOTweet():
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = "%s. %s %s #%s" % (" ".join(blags), random.choice(butscrewthis),
                                    random.choice(swear), random.choice(swear))
+    elif random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
+        item = lowcarb(True)
+        blags = item.split(" ")
+        blags[random.randrange(0, len(blags))] = random.choice(swear)
+        tweet = random.choice(celebline) % (" ".join(blags), random.choice(swear), 
+                                            random.choice(swear))
     elif random.randrange(20) < 5:
         #
         # check top 10 games and comment

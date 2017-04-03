@@ -58,8 +58,15 @@ def guardian(force=False):
     """
     data = feedparser.parse('https://www.theguardian.com/world/rss')
     return choppy(data, force)
+def lowcarb(force=False):
+    """
+    crappy celeb news
+    """
+    data = feedparser.parse('http://feeds.feedburner.com/SimplyRecipesLowCarb')
+    return choppy(data, force)
+
 #
 # for test runs
 if __name__ == "__main__":
-    print guardian(True)
+    print lowcarb(True)
     
