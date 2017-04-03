@@ -20,7 +20,7 @@ import tweepy
 from games import gamegrab
 from holly import celebgrab
 from films import dvdgrab
-from newsfeeds import nytimes, skynews, bbcent, bbcworld, guardian, lowcarb
+from newsfeeds import *
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
 
 #
@@ -35,6 +35,8 @@ except:
 #
 # It's combination list time!
 #
+rss = ("nytimes", "skynews", "bbcent", "bbcworld", "guardian", "lowcarb", "gamegrab", "dvdgrab", 
+       "denofgeek", "science", "rockpaper")
 superlative = ("Custard", "Dead", "Cunty", "Fucked", "Shitted", "Pink", "Blank", "Arsecake", "Fcuk",
                "Cock", "Insect", "Argonian", "Super", "Molested", "Ultra", "Fuckaroo", "Mega",
                "Enormo", "Mini", "Funky", "Moo", "Crap", "Ultra", "Weak", "Weepy", "Mad", "Rage",
@@ -195,19 +197,19 @@ def constructOTweet():
     elif random.randrange(20) < 5:
         #
         # check bbc world 
-        item = bbcworld(True)
+        item = eval(random.choice(rss) +"(True)")
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = " ".join(blags)
-    elif random.randrange(20) < 5:
+    elif random.randrange(20) < 8:
         #
         # check world news, replace a word
-        item = bbcworld(True)
+        item = eval(random.choice(rss) +"(True)")
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = "%s. %s %s #%s" % (" ".join(blags), random.choice(butscrewthis),
                                    random.choice(swear), random.choice(swear))
-    elif random.randrange(20) < 5:
+    elif random.randrange(20) < 8:
         #
         # check low carb recipes
         item = lowcarb(True)
@@ -215,58 +217,24 @@ def constructOTweet():
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = random.choice(celebline) % (" ".join(blags), random.choice(swear), 
                                             random.choice(swear))
-    elif random.randrange(20) < 5:
-        #
-        # check top 10 games and comment
-        item = bbcent(True)
-        blags = item.split(" ")
-        blags[random.randrange(0, len(blags))] = random.choice(swear)
-        tweet = " ".join(blags)
-    elif random.randrange(20) < 5:
-        #
-        # Replace a dvd word
-        item = dvdgrab()
-        blags = item.split(" ")
-        blags[random.randrange(0, len(blags))] = random.choice(swear)
-        tweet = " ".join(blags)
-    elif random.randrange(20) < 5:
-        #
-        # check The Guardian
-        item = guardian(True)
-        blags = item.split(" ")
-        blags[random.randrange(0, len(blags))] = random.choice(swear)
-        tweet = " ".join(blags)
-    elif random.randrange(20) < 5:
-        #
-        # check Sky News
-        item = skynews(True)
-        blags = item.split(" ")
-        blags[random.randrange(0, len(blags))] = random.choice(swear)
-        tweet = " ".join(blags)
-    elif random.randrange(20) < 5:
-        #
-        # check New York times
-        item = nytimes(True)
-        blags = item.split(" ")
-        blags[random.randrange(0, len(blags))] = random.choice(swear)
-        tweet = " ".join(blags)
+
     elif random.randrange(20) < 3:
         #
         # check BBC Entertainment
-        game = bbcent()
+        game = eval(random.choice(rss) + "()")
         tweet = "%s %s #%s%s" % (game, random.choice(swear),
                                  random.choice(superlative), random.choice(swear))
     elif random.randrange(20) < 7:
         #
         # check BBC World News
-        game = bbcworld()
+        game = eval(random.choice(rss) + "()")
         tweet = "%s%s! %s %s #%s%s" % (random.choice(superlative), random.choice(swear),
                                        game, random.choice(swear),
                                        random.choice(superlative), random.choice(swear))
     elif random.randrange(20) < 3:
         #
         # check top 10 dvds and comment
-        dvd = dvdgrab()
+        dvd = eval(random.choice(rss) + "()")
         tweet = "%s! %s... %s%s %s %s #%s%s" % (random.choice(swear).capitalize(), dvd,
                                                 random.choice(superlative), random.choice(swear),
                                                 random.choice(proop), random.choice(swear),
@@ -274,7 +242,7 @@ def constructOTweet():
     elif random.randrange(20) < 3:
         #
         # check bbc world and comment
-        dvd = bbcworld()
+        dvd = eval(random.choice(rss) + "()")
         tweet = "%s %s... %s%s? %s %s #%s%s" % (random.choice(swear).capitalize(), dvd,
                                                 random.choice(superlative), random.choice(swear),
                                                 random.choice(proop), random.choice(swear),

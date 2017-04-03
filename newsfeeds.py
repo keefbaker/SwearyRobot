@@ -41,32 +41,52 @@ def bbcent(force=False):
     return choppy(data, force)
 def bbcworld(force=False):
     """
-    crappy celeb news
+    bbc world news
     """
     data = feedparser.parse('http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk')
     return choppy(data, force)
 
 def skynews(force=False):
     """
-    crappy celeb news
+    Sky news
     """
     data = feedparser.parse('http://feeds.skynews.com/feeds/rss/uk.xml')
     return choppy(data, force)
 def guardian(force=False):
     """
-    crappy celeb news
+    from The Guardian
     """
     data = feedparser.parse('https://www.theguardian.com/world/rss')
     return choppy(data, force)
 def lowcarb(force=False):
     """
-    crappy celeb news
+    Low Carb recipes
     """
     data = feedparser.parse('http://feeds.feedburner.com/SimplyRecipesLowCarb')
+    return choppy(data, force)
+def denofgeek(force=False):
+    """
+    Low Carb recipes
+    """
+    data = feedparser.parse('http://www.denofgeek.com/uk/feeds/all')
+    return choppy(data, force)
+def science(force=False):
+    """
+    Low Carb recipes
+    """
+    data = feedparser.parse('https://rss.sciencedaily.com/all.xml')
+    return choppy(data, force)
+def rockpaper(force=False):
+    """
+    Low Carb recipes
+    """
+    data = feedparser.parse('http://feeds.feedburner.com/RockPaperShotgun')
     return choppy(data, force)
 
 #
 # for test runs
 if __name__ == "__main__":
-    print lowcarb(True)
+    lists = [ "lowcarb", "guardian", "skynews", "nytimes", "bbcent"]
+    #print eval(random.choice(lists) + "(True)")
+    print rockpaper(True)
     

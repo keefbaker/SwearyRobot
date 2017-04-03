@@ -3,7 +3,7 @@ Grabs top 10 films from amazone
 """
 import random
 import feedparser
-def dvdgrab():
+def dvdgrab(yep=True):
     """
     grabs amazon top 10
     """

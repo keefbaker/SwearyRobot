@@ -4,7 +4,7 @@ game grabber from amazon
 import random
 import feedparser
 
-def gamegrab():
+def gamegrab(yep=True):
     """
     Grabs top 10 films from amazon
     """
