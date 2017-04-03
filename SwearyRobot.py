@@ -193,7 +193,7 @@ def constructOTweet():
                                           random.choice(superlative), random.choice(swear))
     elif random.randrange(20) < 5:
         #
-        # check bbc world 
+        # check bbc world
         item = eval(random.choice(rss) + "(True)")
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
@@ -212,7 +212,7 @@ def constructOTweet():
         item = lowcarb(True)
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
-        tweet = random.choice(celebline) % (" ".join(blags), random.choice(swear), 
+        tweet = random.choice(celebline) % (" ".join(blags), random.choice(swear),
                                             random.choice(swear))
 
     elif random.randrange(20) < 3:
