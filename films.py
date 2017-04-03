@@ -13,6 +13,7 @@ def dvdgrab(yep=True):
     words = [
         word for word in random.choice(headlines).split(" ")[1:-1] if not brackets.intersection(word)
         ]
-    return " ".join(words)
+    if yep:
+        return " ".join(words)
 if __name__ == "__main__":
     print dvdgrab()
