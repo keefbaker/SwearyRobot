@@ -20,7 +20,7 @@ import tweepy
 from games import gamegrab
 from holly import celebgrab
 from films import dvdgrab
-from newyorktimes import nytimes, skynews, bbcent, bbcworld
+from newyorktimes import nytimes, skynews, bbcent, bbcworld, guardian
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
 
 #
@@ -204,6 +204,13 @@ def constructOTweet():
         #
         # check top 10 games and comment
         item = bbcent(True)
+        blags = item.split(" ")
+        blags[random.randrange(0, len(blags))] = random.choice(swear)
+        tweet = " ".join(blags)
+    elif random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
+        item = guardian(True)
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = " ".join(blags)

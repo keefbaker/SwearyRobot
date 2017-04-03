@@ -52,11 +52,14 @@ def skynews(force=False):
     """
     data = feedparser.parse('http://feeds.skynews.com/feeds/rss/uk.xml')
     return choppy(data, force)
+def guardian(force=False):
+    """
+    crappy celeb news
+    """
+    data = feedparser.parse('https://www.theguardian.com/world/rss')
+    return choppy(data, force)
 #
 # for test runs
 if __name__ == "__main__":
-    print nytimes()
-    print skynews()
-    print bbcworld()
-    print bbcent(True)
+    print guardian(True)
     
