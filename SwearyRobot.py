@@ -178,7 +178,13 @@ def constructOTweet():
                                                      random.choice(OMGWHY),
                                                      random.choice(OMGWHY),
                                                      random.choice(OMGWHY))
-
+    elif random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
+        item = gamegrab()
+        blags = item.split(" ")
+        blags[random.randrange(0, len(blags))] = random.choice(swear)
+        tweet = " ".join(blags)
     elif random.randrange(20) < 3:
         #
         # check top 10 games and comment
@@ -213,6 +219,13 @@ def constructOTweet():
         #
         # check top 10 games and comment
         item = bbcent(True)
+        blags = item.split(" ")
+        blags[random.randrange(0, len(blags))] = random.choice(swear)
+        tweet = " ".join(blags)
+    elif random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
+        item = dvdgrab()
         blags = item.split(" ")
         blags[random.randrange(0, len(blags))] = random.choice(swear)
         tweet = " ".join(blags)
