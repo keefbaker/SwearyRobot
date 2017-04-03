@@ -162,9 +162,14 @@ def constructOTweet():
     if random.randrange(20) < 9:
         #
         # check top 10 games and comment
-        nooz = nytimes()
+        nooz = eval(random.choice(rss) +"()")
         tweet = "%s %s%s #%s%s" % (nooz, random.choice(superlative), random.choice(swear),
                                    random.choice(superlative), random.choice(swear))
+    if random.randrange(20) < 5:
+        #
+        # check top 10 games and comment
+        nooz = eval(random.choice(rss) +"()")
+        tweet = random.choice(preposition) % nooz
     elif random.randrange(20) < 2:
         #
         # random mix of mail top words and swearing
@@ -180,17 +185,10 @@ def constructOTweet():
                                                      random.choice(OMGWHY),
                                                      random.choice(OMGWHY),
                                                      random.choice(OMGWHY))
-    elif random.randrange(20) < 5:
-        #
-        # check top 10 games and replace a word
-        item = gamegrab()
-        blags = item.split(" ")
-        blags[random.randrange(0, len(blags))] = random.choice(swear)
-        tweet = " ".join(blags)
     elif random.randrange(20) < 3:
         #
         # check top 10 games and comment
-        game = gamegrab()
+        game = eval(random.choice(rss) +"(True)")
         tweet = "%s! %s%s %s %s #%s%s" % (game, random.choice(superlative), random.choice(swear),
                                           random.choice(proop), random.choice(swear),
                                           random.choice(superlative), random.choice(swear))
