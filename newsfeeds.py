@@ -82,11 +82,16 @@ def rockpaper(force=False):
     """
     data = feedparser.parse('http://feeds.feedburner.com/RockPaperShotgun')
     return choppy(data, force)
-
+def compweek(force=False):
+    """
+    Low Carb recipes
+    """
+    data = feedparser.parse('http://www.computerweekly.com/rss/IT-security.xml')
+    return choppy(data, force)
 #
 # for test runs
 if __name__ == "__main__":
-    lists = [ "lowcarb", "guardian", "skynews", "nytimes", "bbcent"]
+    lists = [ "lowcarb", "guardian", "skynews", "nytimes", "bbcent", "compweek"]
     #print eval(random.choice(lists) + "(True)")
-    print rockpaper(True)
+    print compweek(True)
     
