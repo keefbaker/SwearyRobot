@@ -121,4 +121,3 @@ if __name__ == "__main__":
              "hedge", "denofgeek"]
     #print eval(random.choice(lists) + "(True)")
     print metal(True)
-
