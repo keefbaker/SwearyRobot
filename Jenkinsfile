@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'sudo pip install -r requirements.txt'
+        sh 'su --session-command="pip install -r requirements.txt"'
         sh 'pylint --rcfile=.pylintrc -f parseable *.py'
       }
     }
