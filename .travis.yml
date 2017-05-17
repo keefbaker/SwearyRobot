@@ -7,6 +7,6 @@ jobs:
     - stage: buildit
       script: pylint --rcfile=.pylintrc -f parseable *.py
     - stage: runit
-      script: python SwearyRobot.py 10
+      script: sudo python SwearyRobot.py 10
 language: python
 python: "2.7"
