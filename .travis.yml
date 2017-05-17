@@ -1,10 +1,12 @@
 install:
   - sudo pip install --upgrade pip
   - sudo pip install tweepy feedparser pylint
-include:
-  - stage: buildit
-    script: pylint --rcfile=.pylintrc -f parseable *.py
-  - stage: runit
-    script: python SwearyRobot.py 10
+script: echo "hello"
+jobs:
+  include:
+    - stage: buildit
+      script: pylint --rcfile=.pylintrc -f parseable *.py
+    - stage: runit
+      script: python SwearyRobot.py 10
 language: python
 python: "2.7"
