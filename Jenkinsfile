@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'virtualenv pipmash'
+        sh 'virtualenv /tmp/pipmash'
         sh 'source pipmash/bin/activate && pip install -r requirements.txt'
         sh 'source pipmash/bin/activate && pylint --rcfile=.pylintrc -f parseable *.py'
       }
