@@ -69,7 +69,7 @@ preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it i
                "This can %s off!", "%s!", "Life would be better without %s, don't you think?",
                "This is a new design of %s, let me tell you!",
                "I need some %s for my garage, has anyone got some?", "Your face is a %s!",
-               "Your mum's %s makes me sick.", "Stick %s up your massive arse!", 
+               "Your mum's %s makes me sick.", "Stick %s up your massive arse!",
                "New %s, please.",
                "I could do with a %s.", "What this country needs is a new %s.",
                "I'm not arsed about your your %s, so shut your fucking gob.",
@@ -81,11 +81,11 @@ preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it i
                "No way! %s!", "Start %sing yourself!", "I want to claw my own %s off!",
                "I could do with a %s,", "Hey, call me baby, love my %s.", "Sexy %s!",
                "Hotter than %s,", "Worst %s ever.", "Lick my %s!", "I wish I could %s. :(",
-               "A mega%s..", ":) %s :( :/", "That %sing bastard!", "%s-a-tron!", 
+               "A mega%s..", ":) %s :( :/", "That %sing bastard!", "%s-a-tron!",
                "Well, %s me!",
                "How much %s do you need??", "Tell me more about %s!",
                "You failed %s!", "%s is nicer than this.", "I feel like a %s",
-               "My life is %s.", "Is %s what it's come to?", "Aaaaaaaaaaaaaaaah %s!!!!!!", 
+               "My life is %s.", "Is %s what it's come to?", "Aaaaaaaaaaaaaaaah %s!!!!!!",
                "New %s?"
                "Floweers like %s", "Lords of %s", "%s is the best", "No %s in Tesco.", "It's %s!")
 stuff = ("New World Order", "funeral home", "tea", "toilet", "post office", "work canteen",
@@ -287,22 +287,22 @@ def construct_a_tweet():
 if __name__ == "__main__":
     # if no argument set arg to no to prevent exceptions
     if len(sys.argv) > 1:
-        arg = str(sys.argv[1])
+        ARG = str(sys.argv[1])
     else:
-        arg = str("no")
+        ARG = str("no")
     # process command line option (if any)
-    if arg == "p":
+    if ARG == "p":
         print(construct_a_tweet())
-    elif arg == "no":
+    elif ARG == "no":
         if random.randrange(50) < 5:
             tweeter = construct_a_tweet()
             api.update_status(tweeter)
-    elif arg == "dotweet":
+    elif ARG == "dotweet":
         tweeter = construct_a_tweet()
         api.update_status(tweeter)
     else:
         try:
-            number = int(arg)
+            number = int(ARG)
             for i in range(0, number):
                 try:
                     print(construct_a_tweet())

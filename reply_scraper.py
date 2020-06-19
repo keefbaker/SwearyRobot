@@ -8,7 +8,7 @@ Reply script
 from datetime import datetime, timedelta
 import random
 import tweepy
-from SwearyRobot import swear, twitterName
+from sweary_robot import swear, twitter_name
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
 
 #
