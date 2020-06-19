@@ -59,7 +59,7 @@ superlative = ("Custard", "Dead", "Cunty", "Fucked", "Shitted", "Pink", "Blank",
                "Sproingy", "Meticulous ", "Orificial ", "Phallic")
 with open('swears.txt') as swearfile:
     sfile = swearfile.read()
-swears = sfile.split(',')
+swear = sfile.split(',')
 preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it is... %s.",
                "For the love of %s.", "For %s's sake!",
                "I'm raging about %s.", "It... %s just makes me sad.",
