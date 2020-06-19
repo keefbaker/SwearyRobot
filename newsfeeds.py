@@ -120,4 +120,4 @@ if __name__ == "__main__":
              "nytimes", "bbcent", "compweek",
              "hedge", "denofgeek"]
     #print eval(random.choice(lists) + "(True)")
-    print metal(True)
+    print(metal(True))

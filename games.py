@@ -15,4 +15,4 @@ def gamegrab(yep=True):
     if yep:
         return " ".join(words)
 if __name__ == "__main__":
-    print gamegrab()
+    print(gamegrab())

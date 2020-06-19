@@ -359,6 +359,6 @@ if __name__ == "__main__":
             exc_type, exc_obj, exc_tb = sys.exc_info()
             fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
             print(exc_type, fname, exc_tb.tb_lineno)
-            print "argument not understood - either:\n\t no argument to run normally,"
-            print "\t 'dotweet' to ignore probabilities and just tweet\n\t'p' for print one or "
-            print "\tenter a number to print that many arguments"
+            print("argument not understood - either:\n\t no argument to run normally,")
+            print("\t 'dotweet' to ignore probabilities and just tweet\n\t'p' for print one or ")
+            print("\tenter a number to print that many arguments")

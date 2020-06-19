@@ -22,4 +22,4 @@ def celebgrab():
 #
 # for test runs
 if __name__ == "__main__":
-    print celebgrab()
+    print(celebgrab())
