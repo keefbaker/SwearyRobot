@@ -13,7 +13,8 @@ def dvdgrab(yep=True):
     headlines = [i['title'].encode('ascii', 'ignore') for i in data['entries']]
     brackets = set('[]()-')
     words = [
-        word for word in random.choice(headlines).split(' ')[1:-1] if not brackets.intersection(word)
+        word for word in random.choice(headlines).split(' ')[1:-1] + \
+            if not brackets.intersection(word)
         ]
     if yep:
         return ' '.join(words)

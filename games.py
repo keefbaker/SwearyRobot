@@ -14,7 +14,7 @@ def gamegrab(yep=True):
     headlines = [i['title'].encode('ascii', 'ignore') for i in data['entries']]
     badstuff = set('-()')
     words = [word for word in random.choice(headlines).split(
-            ' ')[1:-1] if not badstuff.intersection(word)]
+        ' ')[1:-1] if not badstuff.intersection(word)]
     if yep:
         return ' '.join(words)
     return ''

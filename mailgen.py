@@ -16,9 +16,9 @@ def grabstuff():
     '''
     Grabs mail headlines
     '''
-    MAILDATA~ = feedparser.parse('http://www.dailymail.co.uk/home/index.rss')
+    MAILDATA = feedparser.parse('http://www.dailymail.co.uk/home/index.rss')
     global SUMMARIES # pylint: disable=W0601
-    SUMMARIES = [i['summary'] for i in MAILDATA~['entries']]
+    SUMMARIES = [i['summary'] for i in MAILDATA['entries']]
     hotwords = {}
     crapwords = ('the', 'a', 'in', 'and', 'from', 'for', 'with', 'on', 'was', 'at',
                  'earlier', 'his', 'her', 'is', 'after', 'are', 'they', 'go', 'to',
