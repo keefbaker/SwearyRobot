@@ -30,7 +30,7 @@ def grabstuff():
                  'out', 'last', 'made', 'mother', 'left', 'just', 'people', 'time', 'found',
                  'most', 'per', 'into', 'could', 'state', 'off', 'home', 'would', '(pictured)',
                  'them', 'if', 'when', 'daily', 'car', 'city', 'around', 'what', 'video', 'south',
-                 'five', 'other', 'told', 'study', 'how', 'way', 'first', 
+                 'five', 'other', 'told', 'study', 'how', 'way', 'first',
                  'show', 'according', 'west',
                  'world', 'through', 'during', 'london,', 'following', 'need', 'even', 'men')
     for nasty_headline in SUMMARIES:
@@ -68,6 +68,7 @@ def grab():
                         return str(message)
     except ValueError:
         return ''
+    return None
 #
 # Short loop to catch any issues with headlines, some parse weirdly.
 def mail():
