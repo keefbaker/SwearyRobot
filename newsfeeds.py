@@ -11,22 +11,24 @@ def choppy(data, force=False):
     Chops what u need
     """
     headlines = [
-        i["title"].replace("'", "").replace('"', "").replace(":", "").encode("ascii", "ignore") \
-        for i in data["entries"]
+        i["title"].replace("'", "").replace(
+            '"', "").replace(":", "").encode(
+                "ascii", "ignore") for i in data["entries"]
     ]
     if force:
         return random.choice(headlines)
     lines = random.choice(headlines).split(" ")
     banga = 10 if len(lines) >= 10 else len(lines)
     start = 4 if len(lines) >= 8 else 1
-    words = [word for word in lines[0:random.randrange(start, banga)]]
+    words = lines[0:random.randrange(start, banga)]
     return " ".join(words)
 
 def nytimes(force=False):
     """
     crappy celeb news
     """
-    data = feedparser.parse('http://rss.nytimes.com/services/xml/rss/nyt/Politics.xml')
+    data = feedparser.parse(
+        'http://rss.nytimes.com/services/xml/rss/nyt/Politics.xml')
     #
     # Filter out crap and fix utf encoding so it can be listed
     #print data
@@ -36,13 +38,15 @@ def bbcent(force=False):
     """
     crappy celeb news
     """
-    data = feedparser.parse('http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml?edition=uk')
+    data = feedparser.parse(
+        'http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml?edition=uk')
     return choppy(data, force)
 def bbcworld(force=False):
     """
     bbc world news
     """
-    data = feedparser.parse('http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk')
+    data = feedparser.parse(
+        'http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk')
     return choppy(data, force)
 
 def skynews(force=False):
@@ -98,7 +102,8 @@ def music(force=False):
     """
     Stuff
     """
-    data = feedparser.parse('http://www.music-news.com/rss/UK/news?includeCover=true')
+    data = feedparser.parse(
+        'http://www.music-news.com/rss/UK/news?includeCover=true')
     return choppy(data, force)
 
 def metal(force=False):
@@ -111,8 +116,10 @@ def getmahfeeds():
     """
     Handler for the eval used in the main loop
     """
-    return ("nytimes", "skynews", "bbcent", "bbcworld", "guardian", "lowcarb", "gamegrab", "dvdgrab",
-            "denofgeek", "science", "rockpaper", "compweek", "hedge", "metal", "music")
+    return ("nytimes", "skynews", "bbcent", "bbcworld",
+            "guardian", "lowcarb", "gamegrab", "dvdgrab",
+            "denofgeek", "science", "rockpaper", "compweek",
+            "hedge", "metal", "music")
 #
 # for test runs
 if __name__ == "__main__":

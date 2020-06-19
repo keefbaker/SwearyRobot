@@ -335,7 +335,7 @@ if __name__ == "__main__":
         arg = str("no")
     # process command line option (if any)
     if arg == "p":
-        print constructOTweet()
+        print(constructOTweet())
     elif arg == "no":
         if random.randrange(50) < 5:
             tweeter = constructOTweet()
