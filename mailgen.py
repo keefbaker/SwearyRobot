@@ -16,9 +16,9 @@ def grabstuff():
     '''
     Grabs mail headlines
     '''
-    MAILDATA = feedparser.parse('http://www.dailymail.co.uk/home/index.rss')
+    maildata = feedparser.parse('http://www.dailymail.co.uk/home/index.rss')
     global SUMMARIES # pylint: disable=W0601
-    SUMMARIES = [i['summary'] for i in MAILDATA['entries']]
+    SUMMARIES = [i['summary'] for i in maildata['entries']]
     hotwords = {}
     crapwords = ('the', 'a', 'in', 'and', 'from', 'for', 'with', 'on', 'was', 'at',
                  'earlier', 'his', 'her', 'is', 'after', 'are', 'they', 'go', 'to',
@@ -33,21 +33,21 @@ def grabstuff():
                  'five', 'other', 'told', 'study', 'how', 'way', 'first', 
                  'show', 'according', 'west',
                  'world', 'through', 'during', 'london,', 'following', 'need', 'even', 'men')
-    for urghHeadline in SUMMARIES:
-        for word in urghHeadline.split(' '):
+    for nasty_headline in SUMMARIES:
+        for word in nasty_headline.split(' '):
             try:
                 word = str(word).lower()
-            except:
+            except ValueError:
                 word = 'a'
             if word not in hotwords and word not in crapwords:
                 hotwords[word] = 1
             elif word not in crapwords:
                 hotwords[word] += 1
-    global tag # pylint: disable=W0601
-    tag = []
-    zimbus = sorted(hotwords.items(), key=lambda x: x[1], reverse=True)
-    for f, _ in zimbus[:150]:
-        tag.append(f)
+    global TAG # pylint: disable=W0601
+    TAG = []
+    sorted_hotwords = sorted(hotwords.items(), key=lambda x: x[1], reverse=True)
+    for hword, _ in sorted_hotwords[:150]:
+        TAG.append(hword)
 
 #
 # Grab Daily Heil headlines
@@ -66,17 +66,17 @@ def grab():
                     message = ' '.join(sentence)
                     if (len(str(message)) < 100) and (len(str(message)) > 10):
                         return str(message)
-    except:
-        pass
+    except ValueError:
+        return ''
 #
 # Short loop to catch any issues with headlines, some parse weirdly.
 def mail():
     '''
     Yep, catch crap
     '''
-    global mailcrap # pylint: disable=W0601
-    mailcrap = grab()
-    if mailcrap is None:
+    global MAIL_CRAP # pylint: disable=W0601
+    MAIL_CRAP = grab()
+    if MAIL_CRAP is None:
         mail()
 #
 # Export a load of common words from The Fail (used in SwearyRobot)
@@ -89,7 +89,7 @@ def younutter():
     for _ in 'TheMailAreABunchOfCuntsAndIWouldntPissOn' + \
         'ThemIfTheyWereOnFireNoIMeanItIHateTheBunchOfFascist' + \
             'FuckingBastardsAndTheyCanShoveTheirRacismUpTheirArse':
-        headline.append(random.choice(tag))
+        headline.append(random.choice(TAG))
     return headline
 #
 # Main program, returns a list of a headline and a few common words for use
@@ -100,9 +100,9 @@ def biglad():
     headline = []
     grabstuff()
     mail()
-    headline.append(mailcrap)
+    headline.append(MAIL_CRAP)
     for _ in 'Mail':
-        headline.append(random.choice(tag))
+        headline.append(random.choice(TAG))
     return headline
 #
 # so it can be run directly for testing

@@ -20,7 +20,7 @@ api = tweepy.API(auth)
 #
 # sweary sentences
 speaktome = ("HOW DARE YOU! %s, you're a %s %s",
-"Never speak to me like that, %s you %s %s!!",
+             "Never speak to me like that, %s you %s %s!!",
              "Fuck off %s #%s%s", "It's people like you, %s who make %s %s!",
              "STFU %s, Your %s is %s!!",
              "%s FUCK YOUR %s %s!!", "Yeah, %s Stick a %s up your %s!!",
