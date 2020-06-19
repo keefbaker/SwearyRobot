@@ -29,7 +29,7 @@ try:
     auth = tweepy.OAuthHandler(apiKey, apiSecret)
     auth.set_access_token(accessToken, accessSecret)
     api = tweepy.API(auth)
-    twitterName = "SwearyRobot"
+    twitter_name = "SwearyRobot"
 except:
     pass
 #
@@ -74,7 +74,8 @@ swear = ("cuntarse", "jog on", "vom", "twatfuck", "urethra", "dogknob", "fuck", 
          "fuckarse", "nope", "ANGRY", "happy", "joy", "jazz", "shart", "mush", "skank", "skunk",
          "slash", "dirt", "sewage", "muck", "dung", "crud", "cream", "asshat", "shyster",
          "shitface", "blast", "blag", "nugget", "ballbags", "Shitfunnel", "pubes", "witch",
-         "cthulu-arse", "terror", "junkie", "failure", "weaksauce", "burp", "peas", "eggs", "donkey",
+         "cthulu-arse", "terror", "junkie", "failure", "weaksauce",
+         "donkey",
          "dangledong", "chuck", "shite", "punk-arse", "useless")
 preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it is... %s.",
                "For the love of %s.", "For %s's sake!",
@@ -85,7 +86,8 @@ preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it i
                "This can %s off!", "%s!", "Life would be better without %s, don't you think?",
                "This is a new design of %s, let me tell you!",
                "I need some %s for my garage, has anyone got some?", "Your face is a %s!",
-               "Your mum's %s makes me sick.", "Stick %s up your massive arse!", "New %s, please.",
+               "Your mum's %s makes me sick.", "Stick %s up your massive arse!", 
+               "New %s, please.",
                "I could do with a %s.", "What this country needs is a new %s.",
                "I'm not arsed about your your %s, so shut your fucking gob.",
                "If only the %s was real..", "There's some %s on telly tonight.",
@@ -96,10 +98,12 @@ preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it i
                "No way! %s!", "Start %sing yourself!", "I want to claw my own %s off!",
                "I could do with a %s,", "Hey, call me baby, love my %s.", "Sexy %s!",
                "Hotter than %s,", "Worst %s ever.", "Lick my %s!", "I wish I could %s. :(",
-               "A mega%s..", ":) %s :( :/", "That %sing bastard!", "%s-a-tron!", "Well, %s me!",
+               "A mega%s..", ":) %s :( :/", "That %sing bastard!", "%s-a-tron!", 
+               "Well, %s me!",
                "How much %s do you need??", "Tell me more about %s!",
                "You failed %s!", "%s is nicer than this.", "I feel like a %s",
-               "My life is %s.", "Is %s what it's come to?", "Aaaaaaaaaaaaaaaah %s!!!!!!", "New %s?"
+               "My life is %s.", "Is %s what it's come to?", "Aaaaaaaaaaaaaaaah %s!!!!!!", 
+               "New %s?"
                "Floweers like %s", "Lords of %s", "%s is the best", "No %s in Tesco.", "It's %s!")
 stuff = ("New World Order", "funeral home", "tea", "toilet", "post office", "work canteen",
          "fish fingers", "Fenton pub", "salad bowl", "lemon juice", "helicopter cockpit",
@@ -150,14 +154,10 @@ proop = ("to", "and", "it's", "not too", "less than", "worse than", "the best", 
 #
 # Time to construct the tweet
 #
-def constructOTweet():
+def construct_a_tweet():
     """
     Makes the tweet... the tweet u want
     """
-    # if random.randrange(20) > 13:
-    #     tweet = "%s%s! %s #%s%s" % (random.choice(superlative), random.choice(swear),
-    #                                 random.choice(preposition) % random.choice(swear),
-    #                                 random.choice(superlative), random.choice(swear))
     if random.randrange(20) < 9:
         #
         # check top 10 games and comment
@@ -172,18 +172,18 @@ def constructOTweet():
     elif random.randrange(20) < 2:
         #
         # random mix of mail top words and swearing
-        OMGWHY = mailgen.younutter()
-        OMGWHY += [o for o in swear]
-        tweet = "%s %s %s %s! %s %s? %s %s #%s%s" % (random.choice(OMGWHY).capitalize(),
-                                                     random.choice(OMGWHY),
-                                                     random.choice(OMGWHY),
-                                                     random.choice(OMGWHY),
-                                                     random.choice(OMGWHY).capitalize(),
-                                                     random.choice(OMGWHY),
-                                                     random.choice(OMGWHY).capitalize(),
-                                                     random.choice(OMGWHY),
-                                                     random.choice(OMGWHY),
-                                                     random.choice(OMGWHY))
+        mail_guff = mailgen.younutter()
+        mail_guff += swear
+        tweet = "%s %s %s %s! %s %s? %s %s #%s%s" % (random.choice(mail_guff).capitalize(),
+                                                     random.choice(mail_guff),
+                                                     random.choice(mail_guff),
+                                                     random.choice(mail_guff),
+                                                     random.choice(mail_guff).capitalize(),
+                                                     random.choice(mail_guff),
+                                                     random.choice(mail_guff).capitalize(),
+                                                     random.choice(mail_guff),
+                                                     random.choice(mail_guff),
+                                                     random.choice(mail_guff))
     elif random.randrange(20) < 3:
         #
         # check top 10 games and comment
@@ -254,28 +254,6 @@ def constructOTweet():
                                                     random.choice(swear), crappo[1],
                                                     random.choice(swear), crappo[2],
                                                     crappo[3], random.choice(swear))
-    # elif random.randrange(20) < 2:
-    #     #
-    #     # grab followers so we can randomly insult one
-    #     ids = [u.screen_name for u in tweepy.Cursor(api.followers, screen_name=twitterName).items()]
-    #     fool_line = ["@%s OI %s! %s in the %s, you fucking %s!!", "I wish @%s would %s %s up %s",
-    #                  "Hey @%s!! %s a %s while %s is %s you %s", "@%s in %s with %s. Total %s %s. #%s"]
-    #     tweet = random.choice(fool_line) % (
-    #         random.choice(ids), random.choice(superlative) + random.choice(swear),
-    #         random.choice(swear), random.choice(stuff), random.choice(swear))
-    # elif random.randrange(20) < 8:
-    #     tweet = "%s %s in the %s. %s. #%s" % (random.choice(dang), random.choice(swear),
-    #                                           random.choice(stuff),
-    #                                           random.choice(preposition) % random.choice(swear),
-    #                                           random.choice(swear))
-    # elif random.randrange(20) < 6:
-    #     #
-    #     # grab uk trends so we can insult one
-    #     trends1 = api.trends_place(44418)
-    #     hashtags = [x['name'] for x in trends1[0]['trends'] if x['name'].startswith('#')]
-    #     tweet = "%s %s %s" % (random.choice(noidea) % random.choice(swear),
-    #                           random.choice(preposition) % random.choice(swear),
-    #                           random.choice(hashtags))
     elif random.randrange(20) < 9:
         #
         # Get a (hopefully) celebrities name from hollywood insider and use it in a tweet
@@ -313,14 +291,10 @@ def constructOTweet():
         zoos = nooz.split(" ")
         zoos[random.randrange(len(zoos))] = random.choice(swear).strip()
         nooz = str(" ".join(zoos))
-        tweet = "%s %s %s? %s! #%s" % (random.choice(superlative), nooz, random.choice(swear),
+        tweet = "%s %s %s? %s! #%s" % (random.choice(superlative), 
+                                       nooz, random.choice(swear),
                                        random.choice(superlative), random.choice(swear))
 
-    # else:
-    #     masstrack = random.choice(superlative) + random.choice(swear)
-    #     supermasstrack = random.choice(preposition) % masstrack
-    #     tweet = "%s %s %s %s." % (random.choice(dong), supermasstrack, random.choice(butscrewthis),
-    #                               random.choice(swear))
     return tweet
 #
 # use p after the python script for print test eg : SwearyRobot.py p or use an integer to print
@@ -335,20 +309,20 @@ if __name__ == "__main__":
         arg = str("no")
     # process command line option (if any)
     if arg == "p":
-        print(constructOTweet())
+        print(construct_a_tweet())
     elif arg == "no":
         if random.randrange(50) < 5:
-            tweeter = constructOTweet()
+            tweeter = construct_a_tweet()
             api.update_status(tweeter)
     elif arg == "dotweet":
-        tweeter = constructOTweet()
+        tweeter = construct_a_tweet()
         api.update_status(tweeter)
     else:
         try:
             number = int(arg)
             for i in range(0, number):
                 try:
-                    print(constructOTweet())
+                    print(construct_a_tweet())
                 except Exception as e:
                     print(str(e))
                     exc_type, exc_obj, exc_tb = sys.exc_info()
