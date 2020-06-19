@@ -15,11 +15,12 @@ from __future__ import unicode_literals
 import sys
 import os
 import random
-import mailgen
 import tweepy
-from games import gamegrab # pylint: disable=W0611
+import mailgen
+
+# from games import gamegrab # pylint: disable=W0611
 from holly import celebgrab
-from films import dvdgrab # pylint: disable=W0611
+# from films import dvdgrab # pylint: disable=W0611
 from newsfeeds import * # pylint: disable=W0614,W0401
 from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
 
@@ -56,27 +57,9 @@ superlative = ("Custard", "Dead", "Cunty", "Fucked", "Shitted", "Pink", "Blank",
                "Torpid", "Bob-a-job-", "Shite", "Putrid", "Turd", "Spit", "Fuckknocking", "Jet",
                "Oozing", "Worthless", "Rank", "Mockable", "Soggy ", "Moist ", "Affable ",
                "Sproingy", "Meticulous ", "Orificial ", "Phallic")
-swear = ("cuntarse", "jog on", "vom", "twatfuck", "urethra", "dogknob", "fuck", "halibutcock",
-         "vole", "insect", "jackoff", "cum", "cunt", "arse", "felch", "crustbum", "gristle", "gum",
-         "bum", "shit", "motherfucker", "piss", "wank", "nipple", "knob" "vomit", "penis", "twat",
-         "cock", "dumb", "fucknut", "cuntface", "dribble", "wipe", "chunder", "bastard",
-         "mugfucker", "assclown", "boner", "clitoris", "chode", "dickhead", "cuntrag",
-         "dipshit", "douche", "nutsack", "pecker", "prick", "queef", "rimjob", "scrote", "shitbag",
-         "skullfuck", "turd", "twatlips", "tit", "fart", "flaps", "jamrag", "bellend", "helmet",
-         "dangler", "cocksnot", "jizz", "goatse", "paedo", "axewound", "anus", "brownhole",
-         "dogfuck", "turd", "bottysausage", "wazz", "slurry", "asshole", "monkey", "livershit"
-         "taint", "barse", "bollocks", "jerk", "residue", "scrotum", "fist", "puke", "crybaby",
-         "pustule", "mom", "vagina", "testes", "telemarketer", "crunk", "armpit hair",
-         "sweaty ballsacks", "pisspiece", "godwanger", "pierced penis pus" "dogmuck", "fascist",
-         "bubble", "porridge", "filth", "scum", "slag", "stain", "drip", "widge", "pig", "bag",
-         "hole", "boobs", "fistule", "twerp", "cheeks", "fanny", "ejaculate", "weasel", "spank",
-         "vibrator", "corpse", "bowels", "pus", "balls", "gobshite", "bong", "stink", "stench",
-         "fuckarse", "nope", "ANGRY", "happy", "joy", "jazz", "shart", "mush", "skank", "skunk",
-         "slash", "dirt", "sewage", "muck", "dung", "crud", "cream", "asshat", "shyster",
-         "shitface", "blast", "blag", "nugget", "ballbags", "Shitfunnel", "pubes", "witch",
-         "cthulu-arse", "terror", "junkie", "failure", "weaksauce",
-         "donkey",
-         "dangledong", "chuck", "shite", "punk-arse", "useless")
+with open('swears.txt') as swearfile:
+    sfile = swearfile.read()
+swears = sfile.split(',')
 preposition = ("I mean %s,  right?", "Just %s!!", "There's %s.", "And there it is... %s.",
                "For the love of %s.", "For %s's sake!",
                "I'm raging about %s.", "It... %s just makes me sad.",
