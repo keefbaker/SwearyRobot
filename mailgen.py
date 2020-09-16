@@ -4,6 +4,9 @@ Get the daily fail stuff
 
 #!/usr/bin/env python
 import random
+import sys
+if sys.version_info[0] < 3:
+    from __future__ import print_function
 import feedparser
 
 class BreakOut(Exception):
@@ -108,5 +111,4 @@ def biglad():
 #
 # so it can be run directly for testing
 if __name__ == '__main__':
-    dumper = biglad()
-    print(dumper)
+    print(biglad())

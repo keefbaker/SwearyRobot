@@ -3,6 +3,9 @@ Grabs top 10 films from amazone
 '''
 import random
 import feedparser
+import sys
+if sys.version_info[0] < 3:
+    from __future__ import print_function
 def dvdgrab(yep=True):
     '''
     grabs amazon top 10

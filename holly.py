@@ -2,6 +2,9 @@
 Grabs celeb stuff
 '''
 import random
+import sys
+if sys.version_info[0] < 3:
+    from __future__ import print_function
 import feedparser
 
 #
