@@ -9,12 +9,12 @@ from datetime import datetime, timedelta
 import random
 import tweepy
 from sweary_robot import swear, twitter_name
-from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
+from sweary_creds import API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET # pylint: disable=E0401
 
 #
 # set auth
-AUTH = tweepy.OAuthHandler(apiKey, apiSecret)
-AUTH.set_access_token(accessToken, accessSecret)
+AUTH = tweepy.OAuthHandler(API_KEY, API_SECRET)
+AUTH.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 API = tweepy.API(AUTH)
 
 #

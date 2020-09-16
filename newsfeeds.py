@@ -2,8 +2,10 @@
 Grabs NYT politics
 """
 import random
+import sys
 import feedparser
-
+if sys.version_info[0] < 3:
+    from __future__ import print_function
 #
 # Main prog
 def choppy(data, force=False):
