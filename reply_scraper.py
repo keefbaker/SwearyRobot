@@ -43,7 +43,7 @@ SPEAK = ("HOW DARE YOU! %s, you're a %s %s",
 # check last 3 minutes
 
 TIMESTAMP = datetime.now() - timedelta(minutes=3)
-RESULTS = API.search(q="@" + twitterName)
+RESULTS = API.search(q="@" + twitter_name)
 #
 # if there's anything, lay into the bastards!
 for result in RESULTS:

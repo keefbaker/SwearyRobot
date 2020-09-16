@@ -11,7 +11,7 @@ Master sweary robot program
 # And put your api credentials just as variables into a sweary_creds.py, variable names
 # are in the import statement below
 #
-from __future__ import unicode_literals
+
 import sys
 import os
 import random
@@ -24,7 +24,7 @@ from holly import celebgrab
 from newsfeeds import * # pylint: disable=W0614,W0401
 from sweary_creds import API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET # pylint: disable=E0401
 if sys.version_info[0] < 3:
-    from __future__ import print_function
+    from __future__ import unicode_literals, print_function
 #
 # set auth
 try:
@@ -121,7 +121,7 @@ celebline = ("I wish %s would %s %s!", "%s has %s'd in the %s. Disgraceful!",
              "I'm happy %s %s's %s! Yay!",
              "Nothing like %s to start the %s day. #%s",
              "The most important person alive is %s. Without %s we would %s.")
-butscrewthis = ("But screw this", "Toss off", "Piles of" "Great, more", "Bugger", "No point in",
+butscrewthis = ("But screw this", "Toss off", "Piles of", "Great, more", "Bugger", "No point in",
                 "Loving the", "I can't live without", "I can still taste", "Oh, car full of",
                 "Nobody minds my", "I don't understand", "floating", "flipping the bird to",
                 "Loving the", "Sad about", "Why worry about", "Nothing gets past my")
