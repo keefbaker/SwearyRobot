@@ -3,9 +3,9 @@ game grabber from amazon
 '''
 import random
 import sys
+import feedparser
 if sys.version_info[0] < 3:
     from __future__ import print_function
-import feedparser
 
 def gamegrab(yep=True):
     '''

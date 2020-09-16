@@ -3,7 +3,7 @@ Pull through environment variables for creds
 """
 import os
 
-apiKey = os.environ.get('apiKey')
-apiSecret = os.environ.get('apiSecret')
-accessToken = os.environ.get('accessToken')
-accessSecret = os.environ.get('accessSecret')
+API_KEY = os.environ.get('apiKey')
+API_SECRET = os.environ.get('apiSecret')
+ACCESS_TOKEN = os.environ.get('accessToken')
+ACCESS_SECRET = os.environ.get('accessSecret')

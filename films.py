@@ -2,10 +2,12 @@
 Grabs top 10 films from amazone
 '''
 import random
-import feedparser
 import sys
+import feedparser
 if sys.version_info[0] < 3:
     from __future__ import print_function
+
+
 def dvdgrab(yep=True):
     '''
     grabs amazon top 10

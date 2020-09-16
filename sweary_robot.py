@@ -22,14 +22,15 @@ import mailgen
 from holly import celebgrab
 # from films import dvdgrab # pylint: disable=W0611
 from newsfeeds import * # pylint: disable=W0614,W0401
-from sweary_creds import apiKey, apiSecret, accessToken, accessSecret # pylint: disable=E0401
-
+from sweary_creds import API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET # pylint: disable=E0401
+if sys.version_info[0] < 3:
+    from __future__ import print_function
 #
 # set auth
 try:
-    auth = tweepy.OAuthHandler(apiKey, apiSecret)
-    auth.set_access_token(accessToken, accessSecret)
-    api = tweepy.API(auth)
+    AUTH = tweepy.OAuthHandler(API_KEY, API_SECRET)
+    AUTH.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+    API = tweepy.API(AUTH)
     twitter_name = "SwearyRobot"
 except:
     pass
@@ -296,26 +297,26 @@ if __name__ == "__main__":
     elif ARG == "no":
         if random.randrange(50) < 5:
             tweeter = construct_a_tweet()
-            api.update_status(tweeter)
+            API.update_status(tweeter)
     elif ARG == "dotweet":
         tweeter = construct_a_tweet()
-        api.update_status(tweeter)
+        API.update_status(tweeter)
     else:
         try:
             number = int(ARG)
             for i in range(0, number):
                 try:
                     print(construct_a_tweet())
-                except Exception as e:
-                    print(str(e))
-                    exc_type, exc_obj, exc_tb = sys.exc_info()
-                    fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-                    print(exc_type, fname, exc_tb.tb_lineno)
-        except Exception as e:
-            print(str(e))
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            print(exc_type, fname, exc_tb.tb_lineno)
+                except Exception as exc:
+                    print(str(exc))
+                    EXC_T, EXC_O, EXC_TB = sys.exc_info()
+                    fname = os.path.split(EXC_TB.tb_frame.f_code.co_filename)[1]
+                    print(EXC_T, fname, EXC_TB.tb_lineno)
+        except Exception as exc:
+            print(str(exc))
+            EXC_T, EXC_O, EXC_TB = sys.exc_info()
+            fname = os.path.split(EXC_TB.tb_frame.f_code.co_filename)[1]
+            print(EXC_T, fname, EXC_TB.tb_lineno)
             print("argument not understood - either:\n\t no argument to run normally,")
             print("\t 'dotweet' to ignore probabilities and just tweet\n\t'p' for print one or ")
             print("\tenter a number to print that many arguments")
